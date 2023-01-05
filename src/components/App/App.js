@@ -5,6 +5,7 @@ import Form from "../Form/Form";
 import ComicCollection from "../ComicCollection/ComicCollection";
 import { Route, Routes } from "react-router";
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         path="/addComic"
         element={
           <>
+            <NavLink to="/"> Home </NavLink>
             <Form />
             <NavBar />
           </>
@@ -34,6 +36,7 @@ function App() {
         path="/comicCollection"
         element={
           <>
+            <NavLink to="/"> Home </NavLink>
             <ComicCollection />
             <NavBar />
           </>
