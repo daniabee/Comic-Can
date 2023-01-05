@@ -1,13 +1,12 @@
 import React from "react";
 import ComicCard from "../ComicCard/ComicCard";
 
-const ComicCollection = () => {
-  // const comicCards = comics.map(item => {
-  //   return < ComicCard />
-  // })
+const ComicCollection = ({ comicData }) => {
+  const comicCards = comicData.map((item) => {
+    return <ComicCard key={item.id} card={item} />;
+  });
 
-  return <p>HIIIIIIIII</p>;
-  //{comicCards}
+  return comicCards;
 };
 
 export default ComicCollection;

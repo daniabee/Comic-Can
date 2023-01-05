@@ -1,9 +1,9 @@
 import React from "react";
 
-const ComicDetail = () => {
+const ComicDetail = ({ card }) => {
   return (
     <div>
-      <p>Title</p>
+      <p>Title: {card.title}</p>
       <p>Year</p>
       <p>Issue</p>
       <p>Grade</p>
