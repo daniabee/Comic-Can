@@ -1,8 +1,8 @@
 import "./App.css";
 import Home from "../Home/Home";
 import NavBar from "../NavBar/NavBar";
+import Form from "../Form/Form";
 import { Route, Routes } from "react-router";
-import { NavLink } from "react-router-dom";
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
           </div>
         }
       />
+      <Route exact path="/addComic" element={<Form />} />
     </Routes>
   );
 }
