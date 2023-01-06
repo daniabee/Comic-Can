@@ -1,0 +1,11 @@
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: gray;
+  height: 20vh;
+  width: 100vw;
+  margin: 0;
+  font-weight: 900;
+  font-size: 2vw;
+}
