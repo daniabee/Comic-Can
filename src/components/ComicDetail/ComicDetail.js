@@ -1,6 +1,11 @@
 import React from "react";
+import { useParams } from "react-router";
 
-const ComicDetail = ({ card }) => {
+const ComicDetail = ({ findCards }) => {
+  const { id } = useParams();
+
+  const card = findCards(id);
+
   return (
     <div className="cardDetails">
       <p>Title: {card.title}</p>

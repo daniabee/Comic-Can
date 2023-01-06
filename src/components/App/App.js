@@ -14,10 +14,10 @@ import ComicDetail from "../ComicDetail/ComicDetail";
 function App() {
   const [comicData, setComicData] = useState(sampleData);
 
-  // const findCards = (match) => {
-  //   const card = comicData.find((item) => match === item.id);
-  //   return <ComicDetail name={match} data={card} />;
-  // };
+  const findCards = (match) => {
+    const card = comicData.find((item) => match === `${item.id}`);
+    return card;
+  };
 
   return (
     <Routes>
@@ -55,14 +55,7 @@ function App() {
       />
       <Route
         path="/comicCollection/:id"
-        render={({ match }) => {
-          let card = comicData.find((item) => {
-            console.log(item);
-            return `${match.params.id}` === `${item.id}`;
-          });
-          console.log(card);
-          return <ComicDetail name={match.params.id} card={card} />;
-        }}
+        element={<ComicDetail findCards={findCards} />}
       />
     </Routes>
   );
