@@ -4,16 +4,31 @@ import NavBar from "../NavBar/NavBar";
 import Form from "../Form/Form";
 import ComicCollection from "../ComicCollection/ComicCollection";
 import { Route, Routes } from "react-router";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 //sample data in use
-import sampleData from "../../sampleData.js/sampleData";
+//import sampleData from "../../sampleData.js/sampleData";
 import ComicDetail from "../ComicDetail/ComicDetail";
 
 function App() {
-  const [comicData, setComicData] = useState(sampleData);
+  const [comicData, setComicData] = useState([]);
+  const [error, setError] = useState('')
 
+  const getComicData = async() => {
+    const url = "https://comic-can.herokuapp.com/api/v1/comicData"
+    try {
+      const response = await fetch(url)
+      const comicBookData = await response.json()
+      setComicData(comicBookData)
+    } catch (error) {
+      setError(`Error: ${error}`)
+    }
+  }
+  useEffect(()=>{
+    getComicData()
+  }, [])
+  
   const findCards = (match) => {
     const card = comicData.find((item) => match === `${item.id}`);
     return card;
