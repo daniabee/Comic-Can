@@ -1,18 +1,33 @@
 .cardDetails {
-  margin-top: 10%;
+  margin-top: 3vh;
   color: aliceblue;
   display: flex;
+  align-items: center;
 }
 .cardInfo {
-  font-family: "Segoe UI";
-  width: 60%;
-  height: 80%;
+  width: 80vh;
+  height: 80vh;
 }
-img {
-  width: 40%;
+.comicImage {
+  width: 50vh;
+  margin-left: 10vh;
+  margin-right: 8vh;
+  margin-top: 0vh;
+}
+.verifiedImage {
+  height: 10vh;
+  width: 10vh;
+}
+h2 {
+  font-size: 6vh;
 }
 p {
   color: aliceblue;
+  font-size: 3vh;
+}
+.cardTitle {
+  display: flex;
+  align-items: center;
 }
 
 button {
