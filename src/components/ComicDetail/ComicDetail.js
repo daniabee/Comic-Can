@@ -22,7 +22,7 @@ const ComicDetail = ({ findCards, setComicData, comicData }) => {
     }
   }
   return (
-    <div>
+    <div className="comicDetails">
       <Link to="/comicCollection">Back</Link>
       <button
         className="edit"

@@ -61,16 +61,17 @@ const EditForm = ({ card, show, setShowModal, comicData, setComicData }) => {
 
   if (show) {
     return (
-      <div className="modal-content">
+      <div className="modal">
+        <div className="modalContent">
         <button
           className="close"
           onClick={() => {
             setShowModal(false);
           }}
         >
-          Close
+          X
         </button>
-        <form className="form modal-body">
+        <form className="editLabels">
           <label>
             Title:
             <input
@@ -137,7 +138,9 @@ const EditForm = ({ card, show, setShowModal, comicData, setComicData }) => {
               }}
             />
           </label>
+          </form>
           <button
+            className="updateButton"
             onClick={(event) => {
               event.preventDefault();
               putComicData();
@@ -147,6 +150,7 @@ const EditForm = ({ card, show, setShowModal, comicData, setComicData }) => {
             Update
           </button>
           <Link
+            className="delete"
             to="/comicCollection"
             onClick={() => {
               console.log("hello");
@@ -155,7 +159,7 @@ const EditForm = ({ card, show, setShowModal, comicData, setComicData }) => {
           >
             Delete
           </Link>
-        </form>
+        </div>
       </div>
     );
   } else {
