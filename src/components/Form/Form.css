@@ -1,16 +1,36 @@
-.form {
+.background {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 76vh;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 50vh;
+  width: 50vw;
+  background-color: rgb(114, 114, 114);
+}
+
+.option {
+  height: 5vh;
+  width: 30vw;
 }
 
 label {
+  font-size: 1.5vw;
+  font-weight: 900;
+  align-self: flex-end;
   color: aliceblue;
   display: flex;
 }
 
 input {
-  margin: 1%;
+  font-size: 1.5vw;
+  margin-left: 2%;
+  width: 20vw;
+  height: 2.5vh;
 }

@@ -3,7 +3,7 @@ import "./Home.css";
 import Banner from "../assets/Banner.png";
 
 const Home = () => {
-  return <img src={Banner} alt="Comic Can" />;
+  return <img className="banner" src={Banner} alt="Comic Can" />;
 };
 
 export default Home;
