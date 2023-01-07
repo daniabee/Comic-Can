@@ -54,83 +54,97 @@ const Form = ({ setComicData, comicData }) => {
   };
 
   return (
-    <form className="form">
-      <label>
-        Title:
-        <input
-          type="text"
-          name="title"
-          value={title}
-          onChange={(event) => {
-            setTitle(event.target.value);
+    <div className="background">
+      <form className="form">
+        <div className="option">
+          <label>
+            Title:
+            <input
+              type="text"
+              name="title"
+              value={title}
+              onChange={(event) => {
+                setTitle(event.target.value);
+              }}
+            />
+          </label>
+        </div>
+        <div className="option">
+          <label>
+            Year:
+            <input
+              type="text"
+              name="year"
+              value={year}
+              onChange={(event) => {
+                setYear(event.target.value);
+              }}
+            />
+          </label>
+        </div>
+        <div className="option">
+          <label>
+            Issue:
+            <input
+              type="text"
+              name="issue"
+              value={issue}
+              onChange={(event) => {
+                setIssue(event.target.value);
+              }}
+            />
+          </label>
+        </div>
+        <div className="option">
+          <label>
+            Grade:
+            <input
+              type="text"
+              name="grade"
+              value={grade}
+              onChange={(event) => {
+                setGrade(event.target.value);
+              }}
+            />
+          </label>
+        </div>
+        <div className="option">
+          <label>
+            Image URL:
+            <input
+              type="text"
+              name="image"
+              value={imageURL}
+              onChange={(event) => {
+                setImageURL(event.target.value);
+              }}
+            />
+          </label>
+        </div>
+        <div className="option">
+          <label>
+            Notes:
+            <input
+              type="text"
+              name="notes"
+              value={note}
+              onChange={(event) => {
+                setNote(event.target.value);
+              }}
+            />
+          </label>
+        </div>
+        <button
+          onClick={(event) => {
+            event.preventDefault();
+            postComicData();
+            clearInputs();
           }}
-        />
-      </label>
-      <label>
-        Year:
-        <input
-          type="text"
-          name="year"
-          value={year}
-          onChange={(event) => {
-            setYear(event.target.value);
-          }}
-        />
-      </label>
-      <label>
-        Issue:
-        <input
-          type="text"
-          name="issue"
-          value={issue}
-          onChange={(event) => {
-            setIssue(event.target.value);
-          }}
-        />
-      </label>
-      <label>
-        Grade:
-        <input
-          type="text"
-          name="grade"
-          value={grade}
-          onChange={(event) => {
-            setGrade(event.target.value);
-          }}
-        />
-      </label>
-      <label>
-        Image URL:
-        <input
-          type="text"
-          name="image"
-          value={imageURL}
-          onChange={(event) => {
-            setImageURL(event.target.value);
-          }}
-        />
-      </label>
-      <label>
-        Notes:
-        <input
-          type="text"
-          name="notes"
-          value={note}
-          onChange={(event) => {
-            setNote(event.target.value);
-          }}
-        />
-      </label>
-      <button
-        onClick={(event) => {
-          event.preventDefault();
-          postComicData();
-          clearInputs();
-        }}
-      >
-        Submit
-      </button>
-    </form>
+        >
+          Submit
+        </button>
+      </form>
+    </div>
   );
 };
 
