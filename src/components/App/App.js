@@ -28,7 +28,7 @@ function App() {
   };
   useEffect(() => {
     getComicData();
-  }, []);
+  }, [comicData]);
 
   const findCards = (match) => {
     const card = comicData.find((item) => match === `${item.id}`);

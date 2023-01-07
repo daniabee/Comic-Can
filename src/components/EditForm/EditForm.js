@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./EditForm.css";
 
 const EditForm = ({ card, show, setShowModal, comicData, setComicData }) => {
@@ -13,7 +14,6 @@ const EditForm = ({ card, show, setShowModal, comicData, setComicData }) => {
     const found = comicData.filter((item) => item.id != card.id);
     found.push(newData);
     setComicData(found);
-    console.log(comicData);
   };
 
   const putComicData = async () => {
@@ -40,6 +40,20 @@ const EditForm = ({ card, show, setShowModal, comicData, setComicData }) => {
       const response = await fetch(url, requestOptions);
       const data = await response.json();
       editComicData(data);
+    } catch (error) {
+      console.log(`Something went wrong: ${error}`);
+    }
+  };
+
+  const deleteComic = async () => {
+    const url = `https://comic-can.herokuapp.com/api/v1/comicData/${card.id}`;
+    const requestOptions = {
+      method: "DELETE",
+    };
+    try {
+      const response = await fetch(url, requestOptions);
+      const data = await response.json();
+      setComicData([]);
     } catch (error) {
       console.log(`Something went wrong: ${error}`);
     }
@@ -130,8 +144,17 @@ const EditForm = ({ card, show, setShowModal, comicData, setComicData }) => {
               setShowModal(false);
             }}
           >
-            Submit Changes
+            Update
           </button>
+          <Link
+            to="/comicCollection"
+            onClick={() => {
+              console.log("hello");
+              deleteComic();
+            }}
+          >
+            Delete
+          </Link>
         </form>
       </div>
     );
