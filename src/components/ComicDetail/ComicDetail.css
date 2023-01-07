@@ -15,15 +15,15 @@ p {
   color: aliceblue;
 }
 
-.edit {
+button {
   color: #aaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
-.edit:hover,
-.edit:focus {
+button:hover,
+button:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
