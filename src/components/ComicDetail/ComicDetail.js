@@ -10,11 +10,15 @@ const ComicDetail = ({ findCards, setComicData, comicData }) => {
   const card = findCards(id);
 
   const [showModal, setShowModal] = useState(false);
-  //console.log(card)
+
 
   const checkVerification = () => {
     if (card.verified.toLowerCase() === "true") {
-      return <img src={verifiedImage} alt={"verified icon"} />
+      return <img
+        src={verifiedImage}
+        alt={"verified icon"}
+        className="verifiedImage"
+      />
     }
   }
   return (
@@ -29,11 +33,11 @@ const ComicDetail = ({ findCards, setComicData, comicData }) => {
         Edit Comic
       </button>
       <div className="cardDetails">
-        <img src={card.image_path} alt={`Cover of ${card.title}`} />
+        <img src={card.image_path} alt={`Cover of ${card.title}`} className="comicImage"/>
         <div className="cardInfo">
-          <div>
-            <h2>{card.title} </h2>
+          <div className="cardTitle">
             {checkVerification()}
+            <h2>{card.title} </h2>
           </div>
           <p>Year: {card.year}</p>
           <p>Issue: {card.issue}</p>
