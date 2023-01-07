@@ -3,7 +3,7 @@
   justify-content: space-evenly;
   align-items: center;
   background: rgb(141, 88, 235);
-  height: 20vh;
+  height: 40vh;
   width: 100vw;
   margin: 0;
   font-weight: 900;
@@ -14,4 +14,24 @@ a {
   color: yellow;
   text-shadow: -1px 1px 2px #000, 1px 1px 2px #000, 1px -1px 0 #000,
     -1px -1px 0 #000;
+  transform: rotate(-18deg);
+  text-decoration: none;
+  transition-duration: 300ms;
+}
+
+a:hover {
+  transform: scale(1.5) rotate(-10deg);
+}
+
+.my-collection-link,
+.add-comic-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 35%;
+  background-image: url("../assets/comic_bang.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
