@@ -10,8 +10,7 @@ const Form = ({ setComicData, comicData }) => {
   const [note, setNote] = useState("");
 
   const postComicData = async () => {
-    //const url = "https://comic-can.herokuapp.com/api/v1/comicData";
-    const url = "http://localhost:8080/api/v1/comicData"
+    const url = "https://comic-can.herokuapp.com/api/v1/comicData";
     const newComic = {
       title: title,
       year: year,
