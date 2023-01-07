@@ -9,55 +9,29 @@ const Form = ({ setComicData, comicData }) => {
   const [imageURL, setImageURL] = useState('')
   const [notes, setNotes] = useState('')
 
-  const postComicData = () => {
-    const newComic = { id: Date.now(), title: title, year: year, issue: issue, grade: grade, image_path: imageURL, verified: "false", note: notes }
-    console.log("NEWCOMIC", newComic)
-    return fetch("https://comic-can.herokuapp.com/api/v1/comicData", {
-        method: "POST",
-        body: JSON.stringify(newComic),
-        headers: {
-          'Content-Type': 'application/JSON',
-          'Accept': 'application/json'
-        },
-      }).then(response => {
-        // if (response.status !== 201) {
-        //   throw Error(response)
-        // } else {
-        //console.log("RESPONSE.JSON", response.json())
-        console.log("RES", response)
-          return response.json()
-        //}
-      }).then(data => {
-        //setComicData([...comicData, data])
-        console.log("DATA", data)
-        console.log("COMICDATA", comicData)
-      })
-      .catch(error => console.log(error))
+  const postComicData = async () => {
+    const url = "https://comic-can.herokuapp.com/api/v1/comicData"
+    const newComic = {id: (comicData.length + 1), title: title, year: year, issue: issue, grade: grade, image_path: imageURL, verified: "false", note: notes}
+  if(newComic.image_path) {
+    newComic.verified = "true"
+  } else {
+    newComic.image_path = "https://www.shutterstock.com/image-vector/picture-vector-icon-no-image-260nw-1732584341.jpg"
   }
-  //const postComicData = async () => {
-  //   const newComic = {id: Date.now(), title: title, year: year, issue: issue, grade: grade, image_path: imageURL, verified: "false", note: notes}
-  // if(newComic.image_path) {
-  //   newComic.verified = "true"
-  // } else {
-  //   newComic.image_path = "https://www.shutterstock.com/image-vector/picture-vector-icon-no-image-260nw-1732584341.jpg"
-  // }
-  // console.log("NEWCOMIC", newComic)
-  // const url = "https://comic-can.herokuapp.com/api/v1/comicData"
-  // const requestOptions = {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json"
-  //   },
-  //   body: JSON.stringify(newComic)
-  // }
-  // try {
-  //   const response = await fetch(url, requestOptions)
-  //   const data = await response.json()
-  //   setComicData([...comicData, data])
-  // } catch (error) {
-  //   console.log(`Something went wrong: ${error}`)
-  // }
-  //}
+  const requestOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(newComic)
+  }
+  try {
+    const response = await fetch(url, requestOptions)
+    const data = await response.json()
+    setComicData([...comicData, data])
+  } catch (error) {
+    console.log(`Something went wrong: ${error}`)
+  }
+}
 
   const clearInputs = () => {
     setTitle("")
@@ -128,7 +102,7 @@ const Form = ({ setComicData, comicData }) => {
         onClick={(event) => {
           event.preventDefault()
           postComicData()
-          // clearInputs()
+          clearInputs()
         }}
       >Submit</button>
     </form>
