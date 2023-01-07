@@ -28,7 +28,7 @@ function App() {
   useEffect(()=>{
     getComicData()
   }, [])
-  
+
   const findCards = (match) => {
     const card = comicData.find((item) => match === `${item.id}`);
     return card;
@@ -52,7 +52,7 @@ function App() {
         element={
           <>
             <NavLink to="/"> Home </NavLink>
-            <Form />
+            <Form setComicData={setComicData} comicData={comicData}  />
             <NavBar />
           </>
         }
