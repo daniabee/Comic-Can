@@ -1,13 +1,49 @@
 import React, { useState } from "react";
 import "./EditForm.css";
 
-const EditForm = ({ card, show, setShowModal }) => {
+const EditForm = ({ card, show, setShowModal, comicData, setComicData }) => {
   const [title, setTitle] = useState(card.title);
   const [year, setYear] = useState(card.year);
   const [issue, setIssue] = useState(card.issue);
   const [grade, setGrade] = useState(card.grade);
   const [imageURL, setImageURL] = useState(card.image_path);
-  const [notes, setNotes] = useState(card.notes);
+  const [note, setNote] = useState(card.note);
+
+  const editComicData = (newData) => {
+    const found = comicData.filter((item) => item.id != card.id);
+    found.push(newData);
+    setComicData(found);
+    console.log(comicData);
+  };
+
+  const putComicData = async () => {
+    const url = `https://comic-can.herokuapp.com/api/v1/comicData/${card.id}`;
+    const newComic = {
+      id: card.id,
+      title: title,
+      year: year,
+      issue: issue,
+      grade: grade,
+      image_path: imageURL,
+      verified: card.varified,
+      note: note,
+    };
+
+    const requestOptions = {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newComic),
+    };
+    try {
+      const response = await fetch(url, requestOptions);
+      const data = await response.json();
+      editComicData(data);
+    } catch (error) {
+      console.log(`Something went wrong: ${error}`);
+    }
+  };
 
   if (show) {
     return (
@@ -81,16 +117,17 @@ const EditForm = ({ card, show, setShowModal }) => {
             <input
               type="text"
               name="notes"
-              value={notes}
+              value={note}
               onChange={(event) => {
-                setNotes(event.target.value);
+                setNote(event.target.value);
               }}
             />
           </label>
           <button
             onClick={(event) => {
-              //putFunction
-              console.log("changed");
+              event.preventDefault();
+              putComicData();
+              setShowModal(false);
             }}
           >
             Submit Changes

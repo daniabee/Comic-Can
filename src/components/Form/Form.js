@@ -2,45 +2,56 @@ import React, { useState } from "react";
 import "./Form.css";
 
 const Form = ({ setComicData, comicData }) => {
-  const [title, setTitle] = useState('')
-  const [year, setYear] = useState('')
-  const [issue, setIssue] = useState('')
-  const [grade, setGrade] = useState('')
-  const [imageURL, setImageURL] = useState('')
-  const [notes, setNotes] = useState('')
+  const [title, setTitle] = useState("");
+  const [year, setYear] = useState("");
+  const [issue, setIssue] = useState("");
+  const [grade, setGrade] = useState("");
+  const [imageURL, setImageURL] = useState("");
+  const [note, setNote] = useState("");
 
   const postComicData = async () => {
-    const url = "https://comic-can.herokuapp.com/api/v1/comicData"
-    const newComic = {id: (comicData.length + 1), title: title, year: year, issue: issue, grade: grade, image_path: imageURL, verified: "false", note: notes}
-  if(newComic.image_path) {
-    newComic.verified = "true"
-  } else {
-    newComic.image_path = "https://www.shutterstock.com/image-vector/picture-vector-icon-no-image-260nw-1732584341.jpg"
-  }
-  const requestOptions = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(newComic)
-  }
-  try {
-    const response = await fetch(url, requestOptions)
-    const data = await response.json()
-    setComicData([...comicData, data])
-  } catch (error) {
-    console.log(`Something went wrong: ${error}`)
-  }
-}
+    const url = "https://comic-can.herokuapp.com/api/v1/comicData";
+    const newComic = {
+      id: comicData.length + 1,
+      title: title,
+      year: year,
+      issue: issue,
+      grade: grade,
+      image_path: imageURL,
+      verified: "false",
+      note: note,
+    };
+    if (newComic.image_path) {
+      newComic.verified = "true";
+    } else {
+      newComic.image_path =
+        "https://www.shutterstock.com/image-vector/picture-vector-icon-no-image-260nw-1732584341.jpg";
+    }
+
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newComic),
+    };
+    try {
+      const response = await fetch(url, requestOptions);
+      const data = await response.json();
+      setComicData([...comicData, data]);
+    } catch (error) {
+      console.log(`Something went wrong: ${error}`);
+    }
+  };
 
   const clearInputs = () => {
-    setTitle("")
-    setYear("")
-    setIssue("")
-    setGrade("")
-    setImageURL("")
-    setNotes("")
-  }
+    setTitle("");
+    setYear("");
+    setIssue("");
+    setGrade("");
+    setImageURL("");
+    setNote("");
+  };
 
   return (
     <form className="form">
@@ -50,7 +61,9 @@ const Form = ({ setComicData, comicData }) => {
           type="text"
           name="title"
           value={title}
-          onChange={(event) => { setTitle(event.target.value) }}
+          onChange={(event) => {
+            setTitle(event.target.value);
+          }}
         />
       </label>
       <label>
@@ -59,7 +72,9 @@ const Form = ({ setComicData, comicData }) => {
           type="text"
           name="year"
           value={year}
-          onChange={(event) => { setYear(event.target.value) }}
+          onChange={(event) => {
+            setYear(event.target.value);
+          }}
         />
       </label>
       <label>
@@ -68,7 +83,9 @@ const Form = ({ setComicData, comicData }) => {
           type="text"
           name="issue"
           value={issue}
-          onChange={(event) => { setIssue(event.target.value) }}
+          onChange={(event) => {
+            setIssue(event.target.value);
+          }}
         />
       </label>
       <label>
@@ -77,7 +94,9 @@ const Form = ({ setComicData, comicData }) => {
           type="text"
           name="grade"
           value={grade}
-          onChange={(event) => { setGrade(event.target.value) }}
+          onChange={(event) => {
+            setGrade(event.target.value);
+          }}
         />
       </label>
       <label>
@@ -86,7 +105,9 @@ const Form = ({ setComicData, comicData }) => {
           type="text"
           name="image"
           value={imageURL}
-          onChange={(event) => { setImageURL(event.target.value) }}
+          onChange={(event) => {
+            setImageURL(event.target.value);
+          }}
         />
       </label>
       <label>
@@ -94,17 +115,21 @@ const Form = ({ setComicData, comicData }) => {
         <input
           type="text"
           name="notes"
-          value={notes}
-          onChange={(event) => { setNotes(event.target.value) }}
+          value={note}
+          onChange={(event) => {
+            setNote(event.target.value);
+          }}
         />
       </label>
       <button
         onClick={(event) => {
-          event.preventDefault()
-          postComicData()
-          clearInputs()
+          event.preventDefault();
+          postComicData();
+          clearInputs();
         }}
-      >Submit</button>
+      >
+        Submit
+      </button>
     </form>
   );
 };

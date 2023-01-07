@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import "./ComicDetail.css";
 import EditForm from "../EditForm/EditForm";
 
-const ComicDetail = ({ findCards }) => {
+const ComicDetail = ({ findCards, setComicData, comicData }) => {
   const { id } = useParams();
   const card = findCards(id);
 
@@ -30,7 +30,13 @@ const ComicDetail = ({ findCards }) => {
           <p>Grade: {card.grade}</p>
           <p>Notes: {card.note}</p>
         </div>
-        <EditForm show={showModal} card={card} setShowModal={setShowModal} />
+        <EditForm
+          show={showModal}
+          card={card}
+          setShowModal={setShowModal}
+          setComicData={setComicData}
+          comicData={comicData}
+        />
       </div>
     </div>
   );

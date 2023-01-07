@@ -64,14 +64,23 @@ function App() {
         element={
           <>
             <NavLink to="/"> Home </NavLink>
-            <ComicCollection comicData={comicData} />
+            <ComicCollection
+              comicData={comicData}
+              setComicData={setComicData}
+            />
             <NavBar />
           </>
         }
       />
       <Route
         path="/comicCollection/:id"
-        element={<ComicDetail findCards={findCards} />}
+        element={
+          <ComicDetail
+            findCards={findCards}
+            setComicData={setComicData}
+            comicData={comicData}
+          />
+        }
       />
     </Routes>
   );
