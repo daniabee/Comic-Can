@@ -3,13 +3,20 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 import "./ComicDetail.css";
 import EditForm from "../EditForm/EditForm";
+import verifiedImage from '../assets/verified.png'
 
 const ComicDetail = ({ findCards, setComicData, comicData }) => {
   const { id } = useParams();
   const card = findCards(id);
 
   const [showModal, setShowModal] = useState(false);
+  //console.log(card)
 
+  const checkVerification = () => {
+    if (card.verified.toLowerCase() === "true") {
+      return <img src={verifiedImage} alt={"verified icon"} />
+    }
+  }
   return (
     <div>
       <Link to="/comicCollection">Back</Link>
@@ -26,6 +33,7 @@ const ComicDetail = ({ findCards, setComicData, comicData }) => {
         <div className="cardInfo">
           <div>
             <h2>{card.title} </h2>
+            {checkVerification()}
           </div>
           <p>Year: {card.year}</p>
           <p>Issue: {card.issue}</p>
