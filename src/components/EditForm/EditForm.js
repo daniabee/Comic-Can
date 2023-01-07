@@ -61,83 +61,97 @@ const EditForm = ({ card, show, setShowModal, comicData, setComicData }) => {
 
   if (show) {
     return (
-      <div className="modal-content">
-        <button
-          className="close"
-          onClick={() => {
-            setShowModal(false);
-          }}
-        >
-          Close
-        </button>
-        <form className="form modal-body">
-          <label>
-            Title:
-            <input
-              type="text"
-              name="title"
-              value={title}
-              onChange={(event) => {
-                setTitle(event.target.value);
-              }}
-            />
-          </label>
-          <label>
-            Year:
-            <input
-              type="text"
-              name="year"
-              value={year}
-              onChange={(event) => {
-                setYear(event.target.value);
-              }}
-            />
-          </label>
-          <label>
-            Issue:
-            <input
-              type="text"
-              name="issue"
-              value={issue}
-              onChange={(event) => {
-                setIssue(event.target.value);
-              }}
-            />
-          </label>
-          <label>
-            Grade:
-            <input
-              type="text"
-              name="grade"
-              value={grade}
-              onChange={(event) => {
-                setGrade(event.target.value);
-              }}
-            />
-          </label>
-          <label>
-            Image URL:
-            <input
-              type="text"
-              name="image"
-              value={imageURL}
-              onChange={(event) => {
-                setImageURL(event.target.value);
-              }}
-            />
-          </label>
-          <label>
-            Notes:
-            <input
-              type="text"
-              name="notes"
-              value={note}
-              onChange={(event) => {
-                setNote(event.target.value);
-              }}
-            />
-          </label>
+      <div className="background modal">
+        <form className="form modalContent">
           <button
+            className="close"
+            onClick={() => {
+              setShowModal(false);
+            }}
+          >
+            X
+          </button>
+          <div className="option">
+            <label>
+              Title:
+              <input
+                type="text"
+                name="title"
+                value={title}
+                onChange={(event) => {
+                  setTitle(event.target.value);
+                }}
+              />
+            </label>
+          </div>
+          <div className="option">
+            <label>
+              Year:
+              <input
+                type="text"
+                name="year"
+                value={year}
+                onChange={(event) => {
+                  setYear(event.target.value);
+                }}
+              />
+            </label>
+          </div>
+          <div className="option">
+            <label>
+              Issue:
+              <input
+                type="text"
+                name="issue"
+                value={issue}
+                onChange={(event) => {
+                  setIssue(event.target.value);
+                }}
+              />
+            </label>
+          </div>
+          <div className="option">
+            <label>
+              Grade:
+              <input
+                type="text"
+                name="grade"
+                value={grade}
+                onChange={(event) => {
+                  setGrade(event.target.value);
+                }}
+              />
+            </label>
+          </div>
+          <div className="option">
+            <label>
+              Image URL:
+              <input
+                type="text"
+                name="image"
+                maxLength="250"
+                value={imageURL}
+                onChange={(event) => {
+                  setImageURL(event.target.value);
+                }}
+              />
+            </label>
+          </div>
+          <div className="option">
+            <label>
+              Notes:
+              <input
+                type="text"
+                name="notes"
+                value={note}
+                onChange={(event) => {
+                  setNote(event.target.value);
+                }}
+              />
+            </label>
+          </div>
+          <button
+            className="updateButton"
             onClick={(event) => {
               event.preventDefault();
               putComicData();
@@ -147,13 +161,14 @@ const EditForm = ({ card, show, setShowModal, comicData, setComicData }) => {
             Update
           </button>
           <Link
+            className="delete"
             to="/comicCollection"
             onClick={() => {
               console.log("hello");
               deleteComic();
             }}
           >
-            Delete
+            🗑️
           </Link>
         </form>
       </div>

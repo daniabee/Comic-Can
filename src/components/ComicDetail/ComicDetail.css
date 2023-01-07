@@ -14,6 +14,10 @@
   margin-right: 8vh;
   margin-top: 0vh;
 }
+.comicDetails {
+  position: relative;
+
+}
 .verifiedImage {
   height: 10vh;
   width: 10vh;
