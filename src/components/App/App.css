@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.homeButton {
+  margin: 1%;
+  font-size: 2vw;
+  font-weight: 900;
+}

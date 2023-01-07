@@ -114,6 +114,7 @@ const Form = ({ setComicData, comicData }) => {
             <input
               type="text"
               name="image"
+              maxLength="250"
               value={imageURL}
               onChange={(event) => {
                 setImageURL(event.target.value);
