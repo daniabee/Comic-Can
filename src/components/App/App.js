@@ -3,6 +3,7 @@ import Home from "../Home/Home";
 import NavBar from "../NavBar/NavBar";
 import Form from "../Form/Form";
 import ComicCollection from "../ComicCollection/ComicCollection";
+import EditForm from "../EditForm/EditForm";
 import { Route, Routes } from "react-router";
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
@@ -13,21 +14,21 @@ import ComicDetail from "../ComicDetail/ComicDetail";
 
 function App() {
   const [comicData, setComicData] = useState([]);
-  const [error, setError] = useState('')
+  const [error, setError] = useState("");
 
-  const getComicData = async() => {
-    const url = "https://comic-can.herokuapp.com/api/v1/comicData"
+  const getComicData = async () => {
+    const url = "https://comic-can.herokuapp.com/api/v1/comicData";
     try {
-      const response = await fetch(url)
-      const comicBookData = await response.json()
-      setComicData(comicBookData)
+      const response = await fetch(url);
+      const comicBookData = await response.json();
+      setComicData(comicBookData);
     } catch (error) {
-      setError(`Error: ${error}`)
+      setError(`Error: ${error}`);
     }
-  }
-  useEffect(()=>{
-    getComicData()
-  }, [])
+  };
+  useEffect(() => {
+    getComicData();
+  }, []);
 
   const findCards = (match) => {
     const card = comicData.find((item) => match === `${item.id}`);
@@ -52,7 +53,7 @@ function App() {
         element={
           <>
             <NavLink to="/"> Home </NavLink>
-            <Form setComicData={setComicData} comicData={comicData}  />
+            <Form setComicData={setComicData} comicData={comicData} />
             <NavBar />
           </>
         }

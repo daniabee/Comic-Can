@@ -1,7 +1,30 @@
 .cardDetails {
+  margin-top: 10%;
+  color: aliceblue;
+  display: flex;
+}
+.cardInfo {
+  font-family: "Segoe UI";
+  width: 60%;
+  height: 80%;
+}
+img {
+  width: 40%;
+}
+p {
   color: aliceblue;
 }
 
-p {
-  color: aliceblue;
+.edit {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.edit:hover,
+.edit:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
