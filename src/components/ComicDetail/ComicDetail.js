@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 import "./ComicDetail.css";
 import EditForm from "../EditForm/EditForm";
@@ -11,6 +12,7 @@ const ComicDetail = ({ findCards, setComicData, comicData }) => {
 
   return (
     <div>
+      <Link to="/comicCollection">Back</Link>
       <button
         className="edit"
         onClick={() => {
