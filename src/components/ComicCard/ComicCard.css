@@ -1,4 +1,34 @@
-.comicCard {
+.card-container {
+  position: relative;
+}
+
+.comic-image {
   width: 15vw;
-  height: 50vh;
+  height: auto;
+  opacity: 1;
+  display: block;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.overlay {
+  transition: .5s ease;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  z-index: -1;
+}
+
+.comic-image:hover {
+  opacity: 0.2;
+}
+
+.comic-image:hover .overlay{
+  z-index: 1;
 }
