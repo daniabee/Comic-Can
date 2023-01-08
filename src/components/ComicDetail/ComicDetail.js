@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 import "./ComicDetail.css";
 import EditForm from "../EditForm/EditForm";
 import verifiedImage from "../assets/verified.png";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 import { getComicData } from "../../apiCalls";
 
 const ComicDetail = ({comicData, setComicData}) => {
