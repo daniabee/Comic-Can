@@ -9,7 +9,8 @@
 }
 
 .modalContent {
-  margin: 15% auto;
+  /* margin: 20% auto; */
+  height: 53vh;
   background-color: rgb(114, 114, 114);
   display: flex;
   flex: wrap;
@@ -39,6 +40,7 @@ label {
 }
 
 .updateButton {
+  margin: 2vh;
   color: #aaa;
   font-size: 28px;
   font-weight: bold;
