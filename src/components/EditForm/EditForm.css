@@ -36,12 +36,6 @@ label {
   text-decoration: none;
 }
 
-.editFormButtons {
-  display: flex;
-  width: 21vw;
-  justify-content: space-around;
-}
-
 .close:hover,
 .close:focus {
   color: black;
