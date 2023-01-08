@@ -2,6 +2,7 @@ import React, { useState, useEffect, useParams } from "react";
 import { Link } from "react-router-dom";
 import "./EditForm.css";
 import { getComicData, putComicData, deleteComic } from "../../apiCalls";
+import PropTypes from "prop-types";
 
 const EditForm = ({ comicCard, setComicCard, show, setShowModal, comicData, setComicData }) => {
   const [title, setTitle] = useState(comicCard.title);
@@ -163,6 +164,20 @@ const EditForm = ({ comicCard, setComicCard, show, setShowModal, comicData, setC
   } else {
     return null;
   }
+};
+
+EditForm.propTypes = {
+  setComicData: PropTypes.func.isRequired,
+  comicData: PropTypes.arrayOf(PropTypes.object),
+  card: PropTypes.shape({
+    id: PropTypes.number,
+    image_path: PropTypes.string,
+    title: PropTypes.string,
+    year: PropTypes.string,
+    issue: PropTypes.string,
+  }).isRequired,
+  show: PropTypes.bool.isRequired,
+  setShowModal: PropTypes.func.isRequired,
 };
 
 export default EditForm;
