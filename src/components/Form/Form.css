@@ -26,11 +26,13 @@ label {
   align-self: flex-end;
   color: aliceblue;
   display: flex;
+  padding: 2vh;
 }
 
 input {
   font-size: 1.5vw;
-  margin-left: 2%;
-  width: 20vw;
+  margin-left: 5%;
+  width: 25vw;
   height: 2.5vh;
+  /* padding: 2vh; */
 }
