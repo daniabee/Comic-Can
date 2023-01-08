@@ -180,8 +180,8 @@ const EditForm = ({ card, show, setShowModal, comicData, setComicData }) => {
 };
 
 EditForm.propTypes = {
-  findCards: PropTypes.func,
-  setComicData: PropTypes.func,
+  findCards: PropTypes.func.isRequired,
+  setComicData: PropTypes.func.isRequired,
   comicData: PropTypes.arrayOf(PropTypes.object),
   card: PropTypes.shape({
     id: PropTypes.number,
@@ -189,9 +189,9 @@ EditForm.propTypes = {
     title: PropTypes.string,
     year: PropTypes.string,
     issue: PropTypes.string,
-  }),
-  show: PropTypes.bool,
-  setShowModal: PropTypes.func,
+  }).isRequired,
+  show: PropTypes.bool.isRequired,
+  setShowModal: PropTypes.func.isRequired,
 };
 
 export default EditForm;

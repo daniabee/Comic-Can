@@ -22,7 +22,7 @@ ComicCard.propTypes = {
     title: PropTypes.string,
     year: PropTypes.string,
     issue: PropTypes.string,
-  }),
+  }).isRequired,
 };
 
 export default ComicCard;
