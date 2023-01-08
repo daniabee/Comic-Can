@@ -166,6 +166,20 @@ const EditForm = ({ comicCard, setComicCard, show, setShowModal, comicData, setC
   }
 };
 
+EditForm.propTypes = {
+  setComicData: PropTypes.func.isRequired,
+  comicData: PropTypes.arrayOf(PropTypes.object),
+  card: PropTypes.shape({
+    id: PropTypes.number,
+    image_path: PropTypes.string,
+    title: PropTypes.string,
+    year: PropTypes.string,
+    issue: PropTypes.string,
+  }).isRequired,
+  show: PropTypes.bool.isRequired,
+  setShowModal: PropTypes.func.isRequired,
+};
+
 export default EditForm;
 
 EditForm.prototype = {

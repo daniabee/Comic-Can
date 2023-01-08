@@ -7,6 +7,7 @@ import verifiedImage from "../assets/verified.png";
 import PropTypes from "prop-types";
 import { getComicData } from "../../apiCalls";
 
+
 const ComicDetail = ({comicData, setComicData}) => {
   const [comicCard, setComicCard] = useState([])
   const { id } = useParams();
@@ -35,9 +36,7 @@ const ComicDetail = ({comicData, setComicData}) => {
   return (
     <div className="comicDetails">
       <Link to="/comicCollection" className="back">
-        <button>
-          Back
-        </button>
+        <button>Back</button>
       </Link>
       <button
         className="edit"
@@ -74,6 +73,12 @@ const ComicDetail = ({comicData, setComicData}) => {
       </div>
     </div>
   );
+};
+
+ComicDetail.propTypes = {
+  findCards: PropTypes.func.isRequired,
+  setComicData: PropTypes.func.isRequired,
+  comicData: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default ComicDetail;
