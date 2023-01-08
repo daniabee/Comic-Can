@@ -3,13 +3,9 @@ import Home from "../Home/Home";
 import NavBar from "../NavBar/NavBar";
 import Form from "../Form/Form";
 import ComicCollection from "../ComicCollection/ComicCollection";
-import EditForm from "../EditForm/EditForm";
 import { Route, Routes } from "react-router";
 import React, { useState, useEffect } from "react";
-import { NavLink, Link } from "react-router-dom";
-
-//sample data in use
-//import sampleData from "../../sampleData.js/sampleData";
+import { Link } from "react-router-dom";
 import ComicDetail from "../ComicDetail/ComicDetail";
 
 function App() {
