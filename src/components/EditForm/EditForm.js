@@ -150,16 +150,6 @@ const EditForm = ({ card, show, setShowModal, comicData, setComicData }) => {
               />
             </label>
           </div>
-          <button
-            className="updateButton"
-            onClick={(event) => {
-              event.preventDefault();
-              putComicData();
-              setShowModal(false);
-            }}
-          >
-            Update
-          </button>
           <Link
             className="delete"
             to="/comicCollection"
@@ -170,6 +160,16 @@ const EditForm = ({ card, show, setShowModal, comicData, setComicData }) => {
           >
             🗑️
           </Link>
+          <button
+            className="updateButton"
+            onClick={(event) => {
+              event.preventDefault();
+              putComicData();
+              setShowModal(false);
+            }}
+          >
+            Update
+          </button>
         </form>
       </div>
     );

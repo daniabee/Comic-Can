@@ -47,4 +47,5 @@
 
 .homeButton:hover {
   color: rgb(141, 88, 235);
+  cursor: pointer;
 }
