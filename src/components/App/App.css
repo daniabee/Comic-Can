@@ -38,7 +38,13 @@
 }
 
 .homeButton {
+  font-family: "Bangers", cursive;
   margin: 1%;
-  font-size: 2vw;
-  font-weight: 900;
+  font-size: 3vw;
+  color: yellow;
+  text-decoration: none;
+}
+
+.homeButton:hover {
+  color: rgb(141, 88, 235);
 }

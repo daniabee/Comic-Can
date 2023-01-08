@@ -11,13 +11,14 @@
   align-items: center;
   flex-direction: column;
   height: 50vh;
-  width: 50vw;
+  width: 45vw;
   background-color: rgb(114, 114, 114);
+  border: 5px solid yellow;
 }
 
 .option {
   height: 5vh;
-  width: 30vw;
+  width: 36vw;
 }
 
 label {
