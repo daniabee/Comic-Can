@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from 'prop-types'
 import "./Form.css";
 
 const Form = ({ setComicData, comicData }) => {
@@ -147,5 +148,10 @@ const Form = ({ setComicData, comicData }) => {
     </div>
   );
 };
+
+Form.propTypes = {
+  comicData: PropTypes.arrayOf(PropTypes.object).isRequired,
+  setComicData: PropTypes.func.isRequired
+}
 
 export default Form;
