@@ -13,7 +13,6 @@ const ComicCollection = ({ comicData }) => {
   return (
     <div className="comicCollection">
       <ScrollMenu
-        className="scroll"
         data={comicCards}
         LeftArrow={LeftArrow}
         RightArrow={RightArrow}
