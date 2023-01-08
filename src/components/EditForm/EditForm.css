@@ -9,7 +9,7 @@
 }
 
 .modalContent {
-  height: 55vh;
+  height: 48vh;
   background-color: rgb(114, 114, 114);
   display: flex;
   flex: wrap;
@@ -36,11 +36,10 @@ label {
   text-decoration: none;
 }
 
-.updateButton {
-  margin: 1.5vh;
-  color: #aaa;
-  font-size: 28px;
-  font-weight: bold;
+.editFormButtons {
+  display: flex;
+  width: 21vw;
+  justify-content: space-around;
 }
 
 .close:hover,

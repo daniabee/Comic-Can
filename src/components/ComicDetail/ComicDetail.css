@@ -34,20 +34,25 @@ p {
   align-items: center;
 }
 button {
-  margin: 2vh;
-  color: #aaa;
-  margin: 2vh;
-  color: #aaa;
-  font-size: 28px;
-  font-weight: bold;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  font-family: "Bangers", cursive;
+  margin: 1%;
+  font-size: 3vw;
+  color: yellow;
+  text-decoration: none;
 }
 .edit {
   float: right;
 }
-
+.back {
+  text-decoration: none;
+  float: left;
+}
 button:hover,
 button:focus {
-  color: black;
+  color: rgb(141, 88, 235);
   text-decoration: none;
   cursor: pointer;
 }
