@@ -15,11 +15,12 @@
   display: flex;
   flex: wrap;
 }
-
+/* option {
+  margin: 2vh;
+} */
 label {
-  width: 120px;
+  width: 37vw;
   text-align: right;
-  margin-right: 10px;
 }
 
 .close {

@@ -33,20 +33,16 @@ p {
   display: flex;
   align-items: center;
 }
-
-.edit {
+button {
   margin: 2vh;
   color: #aaa;
-  float: right;
+  margin: 2vh;
+  color: #aaa;
   font-size: 28px;
   font-weight: bold;
 }
-
-.back {
-  margin: 2vh;
-  color: #aaa;
-  font-size: 28px;
-  font-weight: bold;
+.edit {
+  float: right;
 }
 
 button:hover,
