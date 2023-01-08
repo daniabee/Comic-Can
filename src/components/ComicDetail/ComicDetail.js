@@ -75,15 +75,10 @@ const ComicDetail = ({comicData, setComicData}) => {
   );
 };
 
-ComicDetail.propTypes = {
-  findCards: PropTypes.func.isRequired,
-  setComicData: PropTypes.func.isRequired,
-  comicData: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
 
 export default ComicDetail;
 
 ComicDetail.prototype = {
+  setComicData: PropTypes.func.isRequired,
   comicData: PropTypes.arrayOf(PropTypes.object).isRequired,
-  setComicData: PropTypes.func.isRequired
-}
+};
