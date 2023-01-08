@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./EditForm.css";
+import PropTypes from "prop-types";
 
 const EditForm = ({ card, show, setShowModal, comicData, setComicData }) => {
   const [title, setTitle] = useState(card.title);
@@ -176,6 +177,21 @@ const EditForm = ({ card, show, setShowModal, comicData, setComicData }) => {
   } else {
     return null;
   }
+};
+
+EditForm.propTypes = {
+  findCards: PropTypes.func,
+  setComicData: PropTypes.func,
+  comicData: PropTypes.arrayOf(PropTypes.object),
+  card: PropTypes.shape({
+    id: PropTypes.number,
+    image_path: PropTypes.string,
+    title: PropTypes.string,
+    year: PropTypes.string,
+    issue: PropTypes.string,
+  }),
+  show: PropTypes.bool,
+  setShowModal: PropTypes.func,
 };
 
 export default EditForm;

@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import "./ComicDetail.css";
 import EditForm from "../EditForm/EditForm";
 import verifiedImage from "../assets/verified.png";
+import PropTypes from "prop-types";
 
 const ComicDetail = ({ findCards, setComicData, comicData }) => {
   const { id } = useParams();
@@ -25,10 +26,8 @@ const ComicDetail = ({ findCards, setComicData, comicData }) => {
   return (
     <div className="comicDetails">
       <Link to="/comicCollection" className="back">
-        <button>
-          Back
-        </button>
-        </Link>
+        <button>Back</button>
+      </Link>
       <button
         className="edit"
         onClick={() => {
@@ -63,6 +62,12 @@ const ComicDetail = ({ findCards, setComicData, comicData }) => {
       </div>
     </div>
   );
+};
+
+ComicDetail.propTypes = {
+  findCards: PropTypes.func,
+  setComicData: PropTypes.func,
+  comicData: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default ComicDetail;
