@@ -25,28 +25,14 @@ function App() {
     }
   };
 
-  // const getOneComicData = async (id) => {
-  //   const url = `https://comic-can.herokuapp.com/api/v1/comicData${id}`;
-  //   try {
-  //     const response = await fetch(url);
-  //     const comicBookData = await response.json();
-  //     setComicData(comicBookData);
-  //   } catch (error) {
-  //     setError(`Error: ${error}`);
-  //   }
-  // };
   useEffect(() => {
     getComicData();
   }, []);
 
   const findCards = (match) => {
-    console.log("COMICDATA", comicData)
     const card = comicData.filter((item) => {
-      console.log("Number(item.id)", Number(item.id))
       return Number(match) === Number(item.id)
     });
-    console.log("CARD", card)
-    console.log("Number(match)", Number(match))
     return card;
   };
 
@@ -92,11 +78,11 @@ function App() {
         }
       />
       <Route
-        exact path="comicCollection/:id"
+        exact path="/:id"
         element={
           <ComicDetail
             // findCards={findCards}
-            // setComicData={setComicData}
+            setComicData={setComicData}
             // comicData={comicData}
           />
         }

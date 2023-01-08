@@ -6,7 +6,7 @@ import EditForm from "../EditForm/EditForm";
 import verifiedImage from "../assets/verified.png";
 import PropTypes from 'prop-types'
 
-const ComicDetail = () => {
+const ComicDetail = ({comicData, setComicData}) => {
   const [comicCard, setComicCard] = useState([])
   const { id } = useParams();
   const getOneComicData = async (id) => {
@@ -28,10 +28,10 @@ const ComicDetail = () => {
   }, [])
   const [showModal, setShowModal] = useState(false);
 
-  // const checkVerification = (verified) => {
+  // const checkVerification = () => {
   //   console.log("comicCard.verified", comicCard.verified)
   //   console.log("DATA TYPE", typeof verified)
-  //   const ver = verified.toLowerCase()
+  //   const ver = comicCard.verified.toLowerCase()
   //   if (ver === "true") {
   //     return (
   //       <img
@@ -66,7 +66,7 @@ const ComicDetail = () => {
         />
         <div className="cardInfo">
           <div className="cardTitle">
-            {/* {checkVerification(comicCard.verified)} */}
+            {/* {checkVerification()} */}
             <h2>{comicCard.title} </h2>
           </div>
           <p>Year: {comicCard.year}</p>
@@ -75,11 +75,12 @@ const ComicDetail = () => {
           <p>Notes: {comicCard.note}</p>
         </div>
         <EditForm
+          setComicCard={setComicCard}
           show={showModal}
-          card={comicCard}
+          comicCard={comicCard}
           setShowModal={setShowModal}
-        // setComicData={setComicData}
-        // comicData={comicData}
+          setComicData={setComicData}
+          comicData={comicData}
         />
       </div>
     </div>

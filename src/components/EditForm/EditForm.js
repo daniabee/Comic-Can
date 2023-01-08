@@ -1,31 +1,52 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./EditForm.css";
 
-const EditForm = ({ card, show, setShowModal, comicData, setComicData }) => {
-  const [title, setTitle] = useState(card.title);
-  const [year, setYear] = useState(card.year);
-  const [issue, setIssue] = useState(card.issue);
-  const [grade, setGrade] = useState(card.grade);
-  const [imageURL, setImageURL] = useState(card.image_path);
-  const [note, setNote] = useState(card.note);
+const EditForm = ({ comicCard, setComicCard, show, setShowModal, comicData, setComicData }) => {
+  const [title, setTitle] = useState(comicCard.title);
+  const [year, setYear] = useState(comicCard.year);
+  const [issue, setIssue] = useState(comicCard.issue);
+  const [grade, setGrade] = useState(comicCard.grade);
+  const [imageURL, setImageURL] = useState(comicCard.image_path);
+  const [note, setNote] = useState(comicCard.note);
 
-  const editComicData = (newData) => {
-    const found = comicData.filter((item) => item.id != card.id);
-    found.push(newData);
-    setComicData(found);
+  useEffect(() => {
+    setTitle(comicCard.title)
+    setYear(comicCard.year)
+    setIssue(comicCard.issue)
+    setGrade(comicCard.grade)
+    setImageURL(comicCard.image_path)
+    setNote(comicCard.note)
+  }, [comicCard.title, comicCard.year, comicCard.issue, comicCard.grade, comicCard.imageURL, comicCard.note, comicData]);
+
+  // const editComicData = (newData) => {
+  //  console.log("COMICDATA", comicData)
+  //   const comics = comicData.filter((item) => item.id !== comicCard.id);
+  //   comics.push(newData);
+  //   return comics
+  // };
+  const getOneComicData = async (id) => {
+    console.log(id)
+    const url = `https://comic-can.herokuapp.com/api/v1/comicData/${id}`;
+    try {
+      const response = await fetch(url);
+      const comicBook = await response.json();
+      await setComicCard(comicBook[0]);
+      await console.log("COMICCARD", comicCard)
+    } catch (error) {
+      console.log(`Error: ${error}`);
+    }
   };
-
   const putComicData = async () => {
-    const url = `https://comic-can.herokuapp.com/api/v1/comicData/${card.id}`;
+    const url = `https://comic-can.herokuapp.com/api/v1/comicData/${comicCard.id}`;
     const newComic = {
-      id: card.id,
+      id: comicCard.id,
       title: title,
       year: year,
       issue: issue,
       grade: grade,
       image_path: imageURL,
-      verified: card.varified,
+      verified: comicCard.varified,
       note: note,
     };
 
@@ -39,21 +60,32 @@ const EditForm = ({ card, show, setShowModal, comicData, setComicData }) => {
     try {
       const response = await fetch(url, requestOptions);
       const data = await response.json();
-      editComicData(data);
+      getOneComicData(data.id)
+      // setComicData(editComicData(data));
     } catch (error) {
       console.log(`Something went wrong: ${error}`);
     }
   };
 
+  const getComicData = async () => {
+    const url = "https://comic-can.herokuapp.com/api/v1/comicData";
+    try {
+      const response = await fetch(url);
+      const comicBookData = await response.json();
+      setComicData(comicBookData);
+    } catch (error) {
+      console.log(`Error: ${error}`);
+    }
+  };
   const deleteComic = async () => {
-    const url = `https://comic-can.herokuapp.com/api/v1/comicData/${card.id}`;
+    const url = `https://comic-can.herokuapp.com/api/v1/comicData/${comicCard.id}`;
     const requestOptions = {
       method: "DELETE",
     };
     try {
       const response = await fetch(url, requestOptions);
       const data = await response.json();
-      setComicData([]);
+      getComicData();
     } catch (error) {
       console.log(`Something went wrong: ${error}`);
     }
@@ -154,7 +186,6 @@ const EditForm = ({ card, show, setShowModal, comicData, setComicData }) => {
             className="delete"
             to="/comicCollection"
             onClick={() => {
-              console.log("hello");
               deleteComic();
             }}
           >
