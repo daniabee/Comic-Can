@@ -13,9 +13,9 @@ const ComicCard = ({ card }) => {
           alt={`cover of ${card.title} ${card.year} ${card.issue}`}
         />
         <div className="overlay">
-          <p>{card.title}</p>
-          <p>Issue #{card.issue}</p>
-          <p>{card.year}</p>
+            <p>{card.title}</p>
+            <p>Issue #{card.issue}</p>
+            <p>{card.year}</p>
         </div>
       </div>
     </Link >

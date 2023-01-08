@@ -1,4 +1,4 @@
-.comic-container{
+.card-container {
   position: relative;
 }
 
@@ -9,4 +9,25 @@
   display: block;
   transition: .5s ease;
   backface-visibility: hidden;
+}
+
+.overlay {
+  transition: .5s ease;
+  opacity: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-size: 30px;
+}
+
+.comic-image:hover {
+  opacity: 0.3;
+}
+
+.comic-image:hover .overlay{
+  opacity: 1;
 }
