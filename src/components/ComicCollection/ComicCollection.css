@@ -1,9 +1,14 @@
 .comicCollection {
   min-height: 100vh;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  margin: 5%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  padding: 10px;
   gap: 20px
+}
+
+a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
