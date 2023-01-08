@@ -1,14 +1,19 @@
-import React from "react";
-import "./NavBar.css";
-import { NavLink } from "react-router-dom";
+import React from "react"
+import "./NavBar.css"
+import { NavLink } from "react-router-dom"
+import './NavBar.css'
 
 const NavBar = () => {
   return (
     <div className="navbar">
-      <NavLink to="/comicCollection">My Collection </NavLink>
-      <NavLink to="/addComic">Add a Comic </NavLink>
+      <div className='my-collection'>
+        <NavLink to="/comicCollection" className='my-collection-link'>My Collection!</NavLink>
+      </div>
+      <div className='add-comic'>
+        <NavLink to="/addComic" className='add-comic-link'>Add a Comic!</NavLink>
+      </div>
     </div>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar
