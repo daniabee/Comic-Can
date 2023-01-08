@@ -18,7 +18,7 @@ const EditForm = ({ comicCard, setComicCard, show, setShowModal, comicData, setC
     setGrade(comicCard.grade)
     setImageURL(comicCard.image_path)
     setNote(comicCard.note)
-  }, [comicCard.title, comicCard.year, comicCard.issue, comicCard.grade, comicCard.imageURL, comicCard.note, comicData]);
+  }, [comicCard.title, comicCard.year, comicCard.issue, comicCard.grade, comicCard.image_path, comicCard.note, comicData]);
 
   const getOneComicData = async() => {
     const data = await getComicData(`https://comic-can.herokuapp.com/api/v1/comicData/${comicCard.id}`)
