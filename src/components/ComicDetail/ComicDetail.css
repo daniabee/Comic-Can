@@ -1,5 +1,5 @@
 .cardDetails {
-  margin-top: 3vh;
+  margin-top: 4vh;
   color: aliceblue;
   display: flex;
   align-items: center;
@@ -34,9 +34,17 @@ p {
   align-items: center;
 }
 
-button {
+.edit {
+  margin: 2vh;
   color: #aaa;
   float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.back {
+  margin: 2vh;
+  color: #aaa;
   font-size: 28px;
   font-weight: bold;
 }

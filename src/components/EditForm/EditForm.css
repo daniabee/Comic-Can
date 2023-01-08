@@ -12,9 +12,13 @@
   margin: 15% auto;
   background-color: rgb(114, 114, 114);
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
+  flex: wrap;
+}
+
+label {
+  width: 120px;
+  text-align: right;
+  margin-right: 10px;
 }
 
 .close {
@@ -31,6 +35,7 @@
   font-size: 5vh;
   font-weight: bold;
   margin-top: 2%;
+  text-decoration: none;
 }
 
 .updateButton {

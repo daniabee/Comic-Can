@@ -24,7 +24,11 @@ const ComicDetail = ({ findCards, setComicData, comicData }) => {
   };
   return (
     <div className="comicDetails">
-      <Link to="/comicCollection">Back</Link>
+      <Link to="/comicCollection">
+        <button className="back">
+          Back
+        </button>
+        </Link>
       <button
         className="edit"
         onClick={() => {
