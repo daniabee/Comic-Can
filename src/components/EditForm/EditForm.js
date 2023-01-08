@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useParams } from "react";
 import { Link } from "react-router-dom";
 import "./EditForm.css";
+import { getComicData, putComicData, deleteComic } from "../../apiCalls";
 
 const EditForm = ({ comicCard, setComicCard, show, setShowModal, comicData, setComicData }) => {
   const [title, setTitle] = useState(comicCard.title);
@@ -19,25 +20,12 @@ const EditForm = ({ comicCard, setComicCard, show, setShowModal, comicData, setC
     setNote(comicCard.note)
   }, [comicCard.title, comicCard.year, comicCard.issue, comicCard.grade, comicCard.imageURL, comicCard.note, comicData]);
 
-  // const editComicData = (newData) => {
-  //  console.log("COMICDATA", comicData)
-  //   const comics = comicData.filter((item) => item.id !== comicCard.id);
-  //   comics.push(newData);
-  //   return comics
-  // };
-  const getOneComicData = async (id) => {
-    console.log(id)
-    const url = `https://comic-can.herokuapp.com/api/v1/comicData/${id}`;
-    try {
-      const response = await fetch(url);
-      const comicBook = await response.json();
-      await setComicCard(comicBook[0]);
-      await console.log("COMICCARD", comicCard)
-    } catch (error) {
-      console.log(`Error: ${error}`);
-    }
-  };
-  const putComicData = async () => {
+  const getOneComicData = async() => {
+    const data = await getComicData(`https://comic-can.herokuapp.com/api/v1/comicData/${comicCard.id}`)
+    setComicCard(data[0])
+  }
+  
+  const editComicData = async () => {
     const url = `https://comic-can.herokuapp.com/api/v1/comicData/${comicCard.id}`;
     const newComic = {
       id: comicCard.id,
@@ -49,47 +37,15 @@ const EditForm = ({ comicCard, setComicCard, show, setShowModal, comicData, setC
       verified: comicCard.varified,
       note: note,
     };
-
-    const requestOptions = {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newComic),
-    };
-    try {
-      const response = await fetch(url, requestOptions);
-      const data = await response.json();
-      getOneComicData(data.id)
-      // setComicData(editComicData(data));
-    } catch (error) {
-      console.log(`Something went wrong: ${error}`);
-    }
+    await putComicData(url, newComic)
+    await getOneComicData()
   };
 
-  const getComicData = async () => {
-    const url = "https://comic-can.herokuapp.com/api/v1/comicData";
-    try {
-      const response = await fetch(url);
-      const comicBookData = await response.json();
-      setComicData(comicBookData);
-    } catch (error) {
-      console.log(`Error: ${error}`);
-    }
-  };
-  const deleteComic = async () => {
-    const url = `https://comic-can.herokuapp.com/api/v1/comicData/${comicCard.id}`;
-    const requestOptions = {
-      method: "DELETE",
-    };
-    try {
-      const response = await fetch(url, requestOptions);
-      const data = await response.json();
-      getComicData();
-    } catch (error) {
-      console.log(`Something went wrong: ${error}`);
-    }
-  };
+  const deleteComicBook = async () => {
+    await deleteComic(`https://comic-can.herokuapp.com/api/v1/comicData/${comicCard.id}`);
+    const newData = await getComicData("https://comic-can.herokuapp.com/api/v1/comicData")
+    setComicData(newData)
+  }
 
   if (show) {
     return (
@@ -186,7 +142,7 @@ const EditForm = ({ comicCard, setComicCard, show, setShowModal, comicData, setC
             className="delete"
             to="/comicCollection"
             onClick={() => {
-              deleteComic();
+              deleteComicBook()
             }}
           >
             🗑️
@@ -195,7 +151,7 @@ const EditForm = ({ comicCard, setComicCard, show, setShowModal, comicData, setC
             className="updateButton"
             onClick={(event) => {
               event.preventDefault();
-              putComicData();
+              editComicData();
               setShowModal(false);
             }}
           >

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom"
 import PropTypes from "prop-types"
 
 const ComicCard = ({ card }) => {
-  //console.log("CARD FROM COMICCARD", card)
   return (
     <Link to={`/${card.id}`}>
       <img

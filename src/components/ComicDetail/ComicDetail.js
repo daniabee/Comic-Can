@@ -5,45 +5,34 @@ import "./ComicDetail.css";
 import EditForm from "../EditForm/EditForm";
 import verifiedImage from "../assets/verified.png";
 import PropTypes from 'prop-types'
+import { getComicData } from "../../apiCalls";
 
 const ComicDetail = ({comicData, setComicData}) => {
   const [comicCard, setComicCard] = useState([])
   const { id } = useParams();
-  const getOneComicData = async (id) => {
-    console.log(id)
-    const url = `https://comic-can.herokuapp.com/api/v1/comicData/${id}`;
-    try {
-      const response = await fetch(url);
-      const comicBook = await response.json();
-      await setComicCard(comicBook[0]);
-      await console.log("COMICCARD", comicCard)
-    } catch (error) {
-      console.log(`Error: ${error}`);
-    }
-  };
-  //const card = findCards(id);
-  console.log("ID", id)
+
   useEffect(() => {
-    getOneComicData(id)
+    const getOneComicData = async() => {
+      const data = await getComicData(`https://comic-can.herokuapp.com/api/v1/comicData/${id}`)
+      setComicCard(data[0])
+    }
+   getOneComicData()
   }, [])
   const [showModal, setShowModal] = useState(false);
 
-  // const checkVerification = () => {
-  //   console.log("comicCard.verified", comicCard.verified)
-  //   console.log("DATA TYPE", typeof verified)
-  //   const ver = comicCard.verified.toLowerCase()
-  //   if (ver === "true") {
-  //     return (
-  //       <img
-  //         src={verifiedImage}
-  //         alt={"verified icon"}
-  //         className="verifiedImage"
-  //       />
-  //     );
-  //   }
-  // };
-  return (
+  const checkVerification = () => {
+    if (comicCard.verified === "true" || comicCard.verified === "TRUE") {
+      return (
+        <img
+          src={verifiedImage}
+          alt={"verified icon"}
+          className="verifiedImage"
+        />
+      );
+    }
+  };
 
+  return (
     <div className="comicDetails">
       <Link to="/comicCollection" className="back">
         <button>
@@ -66,7 +55,7 @@ const ComicDetail = ({comicData, setComicData}) => {
         />
         <div className="cardInfo">
           <div className="cardTitle">
-            {/* {checkVerification()} */}
+            {checkVerification()}
             <h2>{comicCard.title} </h2>
           </div>
           <p>Year: {comicCard.year}</p>
@@ -93,5 +82,4 @@ export default ComicDetail;
 ComicDetail.prototype = {
   comicData: PropTypes.arrayOf(PropTypes.object).isRequired,
   setComicData: PropTypes.func.isRequired
-  //findCards
 }
