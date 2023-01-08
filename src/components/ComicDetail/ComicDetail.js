@@ -78,7 +78,6 @@ const ComicDetail = ({comicData, setComicData}) => {
 
 export default ComicDetail;
 
-
 ComicDetail.prototype = {
   comicData: PropTypes.arrayOf(PropTypes.object).isRequired,
   setComicData: PropTypes.func.isRequired

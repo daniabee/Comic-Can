@@ -67,6 +67,7 @@ function App() {
         element={
           <ComicDetail
             setComicData={setComicData}
+            comicData={comicData}
           />
         }
       />
