@@ -8,7 +8,7 @@ const ComicCard = ({ card }) => {
     <Link to={`/comicCollection/${card.id}`}>
       <div className="card-container">
         <img
-          className="comicCard"
+          className="comic-image"
           src={card.image_path}
           alt={`cover of ${card.title} ${card.year} ${card.issue}`}
         />
