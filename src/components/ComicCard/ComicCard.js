@@ -13,8 +13,6 @@ const ComicCard = ({ card }) => {
       />
     </Link>
   )
-
-  //Each card will be a link to co to it's card details
 }
 
 ComicCard.propTypes = {
