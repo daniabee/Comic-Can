@@ -65,7 +65,7 @@ const ComicDetail = ({ findCards, setComicData, comicData }) => {
 };
 
 ComicDetail.propTypes = {
-  findCards: PropTypes.func.isRequired,
+  findCards: PropTypes.func,
   setComicData: PropTypes.func.isRequired,
   comicData: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
