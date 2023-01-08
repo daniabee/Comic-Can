@@ -1,6 +1,7 @@
-import React from "react";
-import "./ComicCard.css";
-import { Link } from "react-router-dom";
+import React from "react"
+import "./ComicCard.css"
+import { Link } from "react-router-dom"
+import PropTypes from "prop-types"
 
 const ComicCard = ({ card }) => {
   return (
@@ -8,12 +9,20 @@ const ComicCard = ({ card }) => {
       <img
         className="comicCard"
         src={card.image_path}
-        alt={`cover image of ${card.title} ${card.year} ${card.issue}`}
+        alt={`cover of ${card.title} ${card.year} ${card.issue}`}
       />
     </Link>
-  );
+  )
 
   //Each card will be a link to co to it's card details
-};
+}
 
-export default ComicCard;
+ComicCard.propTypes = {
+  id: PropTypes.number,
+  image_path: PropTypes.string,
+  title: PropTypes.string,
+  year: PropTypes.string,
+  issue: PropTypes.string
+}
+
+export default ComicCard
