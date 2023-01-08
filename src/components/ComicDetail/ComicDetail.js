@@ -1,34 +1,55 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 import "./ComicDetail.css";
 import EditForm from "../EditForm/EditForm";
 import verifiedImage from "../assets/verified.png";
+import PropTypes from 'prop-types'
 
-const ComicDetail = ({ findCards, setComicData, comicData }) => {
+const ComicDetail = () => {
+  const [comicCard, setComicCard] = useState([])
   const { id } = useParams();
-  const card = findCards(id);
-
-  const [showModal, setShowModal] = useState(false);
-
-  const checkVerification = () => {
-    if (card.verified.toLowerCase() === "true") {
-      return (
-        <img
-          src={verifiedImage}
-          alt={"verified icon"}
-          className="verifiedImage"
-        />
-      );
+  const getOneComicData = async (id) => {
+    console.log(id)
+    const url = `https://comic-can.herokuapp.com/api/v1/comicData/${id}`;
+    try {
+      const response = await fetch(url);
+      const comicBook = await response.json();
+      await setComicCard(comicBook[0]);
+      await console.log("COMICCARD", comicCard)
+    } catch (error) {
+      console.log(`Error: ${error}`);
     }
   };
+  //const card = findCards(id);
+  console.log("ID", id)
+  useEffect(() => {
+    getOneComicData(id)
+  }, [])
+  const [showModal, setShowModal] = useState(false);
+
+  // const checkVerification = (verified) => {
+  //   console.log("comicCard.verified", comicCard.verified)
+  //   console.log("DATA TYPE", typeof verified)
+  //   const ver = verified.toLowerCase()
+  //   if (ver === "true") {
+  //     return (
+  //       <img
+  //         src={verifiedImage}
+  //         alt={"verified icon"}
+  //         className="verifiedImage"
+  //       />
+  //     );
+  //   }
+  // };
   return (
+
     <div className="comicDetails">
       <Link to="/comicCollection" className="back">
         <button>
           Back
         </button>
-        </Link>
+      </Link>
       <button
         className="edit"
         onClick={() => {
@@ -39,26 +60,26 @@ const ComicDetail = ({ findCards, setComicData, comicData }) => {
       </button>
       <div className="cardDetails">
         <img
-          src={card.image_path}
-          alt={`Cover of ${card.title}`}
+          src={comicCard.image_path}
+          alt={`Cover of ${comicCard.title}`}
           className="comicImage"
         />
         <div className="cardInfo">
           <div className="cardTitle">
-            {checkVerification()}
-            <h2>{card.title} </h2>
+            {/* {checkVerification(comicCard.verified)} */}
+            <h2>{comicCard.title} </h2>
           </div>
-          <p>Year: {card.year}</p>
-          <p>Issue: {card.issue}</p>
-          <p>Grade: {card.grade}</p>
-          <p>Notes: {card.note}</p>
+          <p>Year: {comicCard.year}</p>
+          <p>Issue: {comicCard.issue}</p>
+          <p>Grade: {comicCard.grade}</p>
+          <p>Notes: {comicCard.note}</p>
         </div>
         <EditForm
           show={showModal}
-          card={card}
+          card={comicCard}
           setShowModal={setShowModal}
-          setComicData={setComicData}
-          comicData={comicData}
+        // setComicData={setComicData}
+        // comicData={comicData}
         />
       </div>
     </div>
@@ -66,3 +87,10 @@ const ComicDetail = ({ findCards, setComicData, comicData }) => {
 };
 
 export default ComicDetail;
+
+
+ComicDetail.prototype = {
+  comicData: PropTypes.arrayOf(PropTypes.object).isRequired,
+  setComicData: PropTypes.func.isRequired
+  //findCards
+}

@@ -8,8 +8,6 @@ import { Route, Routes } from "react-router";
 import React, { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 
-//sample data in use
-//import sampleData from "../../sampleData.js/sampleData";
 import ComicDetail from "../ComicDetail/ComicDetail";
 
 function App() {
@@ -26,12 +24,29 @@ function App() {
       setError(`Error: ${error}`);
     }
   };
+
+  // const getOneComicData = async (id) => {
+  //   const url = `https://comic-can.herokuapp.com/api/v1/comicData${id}`;
+  //   try {
+  //     const response = await fetch(url);
+  //     const comicBookData = await response.json();
+  //     setComicData(comicBookData);
+  //   } catch (error) {
+  //     setError(`Error: ${error}`);
+  //   }
+  // };
   useEffect(() => {
     getComicData();
-  }, [comicData]);
+  }, []);
 
   const findCards = (match) => {
-    const card = comicData.find((item) => match === `${item.id}`);
+    console.log("COMICDATA", comicData)
+    const card = comicData.filter((item) => {
+      console.log("Number(item.id)", Number(item.id))
+      return Number(match) === Number(item.id)
+    });
+    console.log("CARD", card)
+    console.log("Number(match)", Number(match))
     return card;
   };
 
@@ -53,8 +68,7 @@ function App() {
         element={
           <>
             <Link className="homeButton" to="/">
-              {" "}
-              Home{" "}
+              Home
             </Link>
             <Form setComicData={setComicData} comicData={comicData} />
             <NavBar />
@@ -67,8 +81,7 @@ function App() {
         element={
           <>
             <Link className="homeButton" to="/">
-              {" "}
-              Home{" "}
+              Home
             </Link>
             <ComicCollection
               comicData={comicData}
@@ -79,12 +92,12 @@ function App() {
         }
       />
       <Route
-        path="/comicCollection/:id"
+        exact path="comicCollection/:id"
         element={
           <ComicDetail
-            findCards={findCards}
-            setComicData={setComicData}
-            comicData={comicData}
+            // findCards={findCards}
+            // setComicData={setComicData}
+            // comicData={comicData}
           />
         }
       />
