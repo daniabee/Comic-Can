@@ -1,4 +1,21 @@
-# Getting Started with Create React App
+# Comic-Can 
+
+##Abstract
+
+##Technology used
+- Express
+- NodeJS
+- Knex
+- PostgreSQL
+- Cypress
+- JavaScript
+- React
+- React Router
+- CSS
+- Fetch API
+- Git/GitHub
+- GitHub project board
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
