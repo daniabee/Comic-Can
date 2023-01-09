@@ -5,7 +5,8 @@ describe('template spec', () => {
     cy.visit('http://localhost:3000/')
     cy.intercept('https://comic-can.herokuapp.com/api/v1/comicData', { fixture: 'getComicData.json'})
     cy.get('.my-collection-link').click()
-    cy.get('.comicCard').first().click()
+    cy.get('.comic-image').first().click()
+    cy.intercept('https://comic-can.herokuapp.com/api/v1/comicData/1', { fixture: 'getSingleComicData.json'})
   })
 
   it('should have a cover image of the selected comic', () => {
