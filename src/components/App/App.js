@@ -3,37 +3,23 @@ import Home from "../Home/Home";
 import NavBar from "../NavBar/NavBar";
 import Form from "../Form/Form";
 import ComicCollection from "../ComicCollection/ComicCollection";
-import EditForm from "../EditForm/EditForm";
 import { Route, Routes } from "react-router";
 import React, { useState, useEffect } from "react";
-import { NavLink, Link } from "react-router-dom";
-
-//sample data in use
-//import sampleData from "../../sampleData.js/sampleData";
+import { Link } from "react-router-dom";
+import  { getComicData }  from "../../apiCalls";
 import ComicDetail from "../ComicDetail/ComicDetail";
 
 function App() {
   const [comicData, setComicData] = useState([]);
-  const [error, setError] = useState("");
+  //const [error, setError] = useState("");
 
-  const getComicData = async () => {
-    const url = "https://comic-can.herokuapp.com/api/v1/comicData";
-    try {
-      const response = await fetch(url);
-      const comicBookData = await response.json();
-      setComicData(comicBookData);
-    } catch (error) {
-      setError(`Error: ${error}`);
-    }
-  };
   useEffect(() => {
-    getComicData();
-  }, [comicData]);
-
-  const findCards = (match) => {
-    const card = comicData.find((item) => match === `${item.id}`);
-    return card;
-  };
+   const getAllComicData = async() => {
+      const data = await getComicData("https://comic-can.herokuapp.com/api/v1/comicData")
+      setComicData(data)
+    }
+    getAllComicData()
+  }, []);
 
   return (
     <Routes>
@@ -53,8 +39,7 @@ function App() {
         element={
           <>
             <Link className="homeButton" to="/">
-              {" "}
-              Home{" "}
+              Home
             </Link>
             <Form setComicData={setComicData} comicData={comicData} />
             <NavBar />
@@ -67,8 +52,7 @@ function App() {
         element={
           <>
             <Link className="homeButton" to="/">
-              {" "}
-              Home{" "}
+              Home
             </Link>
             <ComicCollection
               comicData={comicData}
@@ -79,10 +63,9 @@ function App() {
         }
       />
       <Route
-        path="/comicCollection/:id"
+        exact path="/:id"
         element={
           <ComicDetail
-            findCards={findCards}
             setComicData={setComicData}
             comicData={comicData}
           />

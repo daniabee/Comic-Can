@@ -1,64 +1,52 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useParams } from "react";
 import { Link } from "react-router-dom";
 import "./EditForm.css";
+import { getComicData, putComicData, deleteComic } from "../../apiCalls";
 import PropTypes from "prop-types";
 
-const EditForm = ({ card, show, setShowModal, comicData, setComicData }) => {
-  const [title, setTitle] = useState(card.title);
-  const [year, setYear] = useState(card.year);
-  const [issue, setIssue] = useState(card.issue);
-  const [grade, setGrade] = useState(card.grade);
-  const [imageURL, setImageURL] = useState(card.image_path);
-  const [note, setNote] = useState(card.note);
+const EditForm = ({ comicCard, setComicCard, show, setShowModal, comicData, setComicData }) => {
+  const [title, setTitle] = useState(comicCard.title);
+  const [year, setYear] = useState(comicCard.year);
+  const [issue, setIssue] = useState(comicCard.issue);
+  const [grade, setGrade] = useState(comicCard.grade);
+  const [imageURL, setImageURL] = useState(comicCard.image_path);
+  const [note, setNote] = useState(comicCard.note);
 
-  const editComicData = (newData) => {
-    const found = comicData.filter((item) => item.id != card.id);
-    found.push(newData);
-    setComicData(found);
-  };
+  useEffect(() => {
+    setTitle(comicCard.title)
+    setYear(comicCard.year)
+    setIssue(comicCard.issue)
+    setGrade(comicCard.grade)
+    setImageURL(comicCard.image_path)
+    setNote(comicCard.note)
+  }, [comicCard.title, comicCard.year, comicCard.issue, comicCard.grade, comicCard.image_path, comicCard.note, comicData]);
 
-  const putComicData = async () => {
-    const url = `https://comic-can.herokuapp.com/api/v1/comicData/${card.id}`;
+  const getOneComicData = async() => {
+    const data = await getComicData(`https://comic-can.herokuapp.com/api/v1/comicData/${comicCard.id}`)
+    setComicCard(data[0])
+  }
+  
+  const editComicData = async () => {
+    const url = `https://comic-can.herokuapp.com/api/v1/comicData/${comicCard.id}`;
     const newComic = {
-      id: card.id,
+      id: comicCard.id,
       title: title,
       year: year,
       issue: issue,
       grade: grade,
       image_path: imageURL,
-      verified: card.varified,
+      verified: comicCard.varified,
       note: note,
     };
-
-    const requestOptions = {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newComic),
-    };
-    try {
-      const response = await fetch(url, requestOptions);
-      const data = await response.json();
-      editComicData(data);
-    } catch (error) {
-      console.log(`Something went wrong: ${error}`);
-    }
+    await putComicData(url, newComic)
+    await getOneComicData()
   };
 
-  const deleteComic = async () => {
-    const url = `https://comic-can.herokuapp.com/api/v1/comicData/${card.id}`;
-    const requestOptions = {
-      method: "DELETE",
-    };
-    try {
-      const response = await fetch(url, requestOptions);
-      const data = await response.json();
-      setComicData([]);
-    } catch (error) {
-      console.log(`Something went wrong: ${error}`);
-    }
-  };
+  const deleteComicBook = async () => {
+    await deleteComic(`https://comic-can.herokuapp.com/api/v1/comicData/${comicCard.id}`);
+    const newData = await getComicData("https://comic-can.herokuapp.com/api/v1/comicData")
+    setComicData(newData)
+  }
 
   if (show) {
     return (
@@ -155,8 +143,7 @@ const EditForm = ({ card, show, setShowModal, comicData, setComicData }) => {
             className="delete"
             to="/comicCollection"
             onClick={() => {
-              console.log("hello");
-              deleteComic();
+              deleteComicBook()
             }}
           >
             🗑️
@@ -165,7 +152,7 @@ const EditForm = ({ card, show, setShowModal, comicData, setComicData }) => {
             className="updateButton"
             onClick={(event) => {
               event.preventDefault();
-              putComicData();
+              editComicData();
               setShowModal(false);
             }}
           >
@@ -179,10 +166,12 @@ const EditForm = ({ card, show, setShowModal, comicData, setComicData }) => {
   }
 };
 
-EditForm.propTypes = {
+export default EditForm;
+
+EditForm.prototype = {
   setComicData: PropTypes.func.isRequired,
   comicData: PropTypes.arrayOf(PropTypes.object),
-  card: PropTypes.shape({
+  comicCard: PropTypes.shape({
     id: PropTypes.number,
     image_path: PropTypes.string,
     title: PropTypes.string,
@@ -191,6 +180,5 @@ EditForm.propTypes = {
   }).isRequired,
   show: PropTypes.bool.isRequired,
   setShowModal: PropTypes.func.isRequired,
+  setComicCard: PropTypes.func.isRequired,
 };
-
-export default EditForm;
