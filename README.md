@@ -17,6 +17,16 @@ The Comic-Can app helps comic collectors keep a digital log of their collections
 
 ![Wireframe](https://user-images.githubusercontent.com/108088961/211430375-c46d95fc-508f-43cb-864c-b7577745053d.png)
 
+## Using the App:
+
+You can visit the deployed link: https://stretch-project-iota.vercel.app/
+
+OR
+
+- Clone down this repo.
+- run <code>npm install</code>
+- run <code>npm start</code>
+- application is now running on localhost:3000
 
 ## Technology used
 
