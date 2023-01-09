@@ -1,103 +1,35 @@
 # Comic-Can 
 
-##Goal : 
+## Goal : 
 
 The main goal of this project was to self-teach new technologies and utilize these new technologies in an application. The team decided to experiment with creating an API by building a server in Express, connecting it to a PostgreSQL database with Knex, and hosting it on a deployment service to be used in a front-end application. 
 
 The repo for the created backend can be found here:
 https://github.com/Eleanorgruth/stretch-project-api#readme
 
-##Application Overview: 
+## Application Overview: 
 
 The Comic-Can app helps comic collectors keep a digital log of their collections. Users can add comics to their digital collection, view individual comics, review a comic's uploaded information (title, year, issue, grade, and notes), edit comic information, and delete a comic from their collection. 
 
-##Technology used
-* ![Express][Express]
-- NodeJS
-- Knex
-- PostgreSQL
-- Cypress
-- JavaScript
-- React
-- React Router
-- CSS
-- Fetch API
-- Git/GitHub
-- GitHub project board
+## Planning & Wireframe:
 
-### Built With
+![image](https://user-images.githubusercontent.com/108088961/211428940-a75fb5a6-7f89-49d8-8a7e-cc61673531d7.png)
 
-* ![Vite][Vite]
-* ![CSS3][CSS3]
-* ![React][React.js]
-* ![HTML5][HTML5]
-* ![TypeScript][TypeScript]
-* ![Cloudflare][Cloudflare]
-* ![React Router][React Router]
+![Wireframe](https://user-images.githubusercontent.com/108088961/211430375-c46d95fc-508f-43cb-864c-b7577745053d.png)
 
-## Available Scripts
 
-In the project directory, you can run:
+## Technology used
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- <code> Express <img height="20" src="https://user-images.githubusercontent.com/25181517/183859966-a3462d8d-1bc7-4880-b353-e2cbed900ed6.png" alt="Express" title="Express" /></code>
+- <code> NodeJS <img height="20" src="https://user-images.githubusercontent.com/25181517/183568594-85e280a7-0d7e-4d1a-9028-c8c2209e073c.png" alt="Node.js" title="Node.js" /></code>
+- <code>Knex</code>
+- <code> PostgreSQL <img height="20" src="https://user-images.githubusercontent.com/25181517/117208740-bfb78400-adf5-11eb-97bb-09072b6bedfc.png" alt="PostgreSQL" title="PostgreSQL" /></code>
+- <code> Cypress <img height="20" src="https://user-images.githubusercontent.com/68279555/200387386-276c709f-380b-46cc-81fd-f292985927a8.png" alt="Cypress" title="Cypress" /></code>
+- <code> JavaScript <img height="20" src="https://user-images.githubusercontent.com/25181517/117447155-6a868a00-af3d-11eb-9cfe-245df15c9f3f.png" alt="JavaScript" title="JavaScript" /></code>
+- <code> React <img height="20" src="https://user-images.githubusercontent.com/25181517/183897015-94a058a6-b86e-4e42-a37f-bf92061753e5.png" alt="React" title="React" /></code>
+- <code>React Router </code>
+- <code> CSS <img height="20" src="https://user-images.githubusercontent.com/25181517/183898674-75a4a1b1-f960-4ea9-abcb-637170a00a75.png" alt="CSS" title="CSS" /></code>
+- <code>Fetch API </code>
+- <code> Git <img height="20" src="https://user-images.githubusercontent.com/25181517/192108372-f71d70ac-7ae6-4c0d-8395-51d8870c2ef0.png" alt="Git" title="Git" /></code>
+- <code> GitHub <img height="20" src="https://user-images.githubusercontent.com/25181517/192108372-f71d70ac-7ae6-4c0d-8395-51d8870c2ef0.png" alt="Git" title="Git" /></code>
+- <code> GitHub project board </code> 
