@@ -5,11 +5,13 @@
 }
 .card-container {
   position: relative;
+  margin-left: 2vw;
+  margin-right: 2vw;
 }
 
 .comic-image {
-  width: 15vw;
-  height: auto;
+  width: auto;
+  height: 70vh;
   opacity: 1;
   display: block;
   transition: .5s ease;
