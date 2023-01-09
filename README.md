@@ -1,9 +1,18 @@
 # Comic-Can 
 
-##Abstract
+##Goal : 
+
+The main goal of this project was to self-teach new technologies and utilize these new technologies in an application. The team decided to experiment with creating an API by building a server in Express, connecting it to a PostgreSQL database with Knex, and hosting it on a deployment service to be used in a front-end application. 
+
+The repo for the created backend can be found here:
+https://github.com/Eleanorgruth/stretch-project-api#readme
+
+##Application Overview: 
+
+The Comic-Can app helps comic collectors keep a digital log of their collections. Users can add comics to their digital collection, view individual comics, review a comic's uploaded information (title, year, issue, grade, and notes), edit comic information, and delete a comic from their collection. 
 
 ##Technology used
-- Express
+* ![Express][Express]
 - NodeJS
 - Knex
 - PostgreSQL
@@ -16,8 +25,15 @@
 - Git/GitHub
 - GitHub project board
 
+### Built With
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* ![Vite][Vite]
+* ![CSS3][CSS3]
+* ![React][React.js]
+* ![HTML5][HTML5]
+* ![TypeScript][TypeScript]
+* ![Cloudflare][Cloudflare]
+* ![React Router][React Router]
 
 ## Available Scripts
 
