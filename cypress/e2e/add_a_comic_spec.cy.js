@@ -51,12 +51,12 @@ describe('Add A Comic Form', () => {
     cy.url().should('eq', 'http://localhost:3000/comicCollection')
     cy.get('[data-key="4"] > a > .card-container > .comic-image').should('have.attr', 'src', imagePath )
   })
-  // it('Should have a Home button that takes you back to the home page', () => {
-  //   cy.get('.homeButton').click()
-  //   cy.url().should('eq', 'https://stretch-project-iota.vercel.app/')
-  // })
-    // it('Should have a my collections button in the nav bar that takes you back to the my collections page', () => {
-  //   cy.get('.my-collection-link').click()
-  //   cy.url().should('eq', 'https://stretch-project-iota.vercel.app/comicCollection/')
-  // })
+  it('Should have a Home button that takes you back to the home page', () => {
+    cy.get('.homeButton').click()
+    cy.url().should('eq', 'http://localhost:3000/')
+  })
+    it('Should have a my collections button in the nav bar that takes you back to the my collections page', () => {
+    cy.get('.my-collection-link').click()
+    cy.url().should('eq', 'http://localhost:3000/comicCollection')
+  })
 })
