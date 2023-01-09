@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from 'prop-types'
 import "./Form.css";
+import { postComicData } from "../../apiCalls";
 
 const Form = ({ setComicData, comicData }) => {
   const [title, setTitle] = useState("");
@@ -10,8 +11,7 @@ const Form = ({ setComicData, comicData }) => {
   const [imageURL, setImageURL] = useState("");
   const [note, setNote] = useState("");
 
-  const postComicData = async () => {
-    const url = "https://comic-can.herokuapp.com/api/v1/comicData";
+  const postNewComic = async () => {
     const newComic = {
       title: title,
       year: year,
@@ -21,29 +21,10 @@ const Form = ({ setComicData, comicData }) => {
       verified: "false",
       note: note,
     };
-    if (newComic.image_path) {
-      newComic.verified = "true";
-    } else {
-      newComic.image_path =
-        "https://www.shutterstock.com/image-vector/picture-vector-icon-no-image-260nw-1732584341.jpg";
-    }
-
-    const requestOptions = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newComic),
-    };
-    try {
-      const response = await fetch(url, requestOptions);
-      const data = await response.json();
-      setComicData([...comicData, data]);
-    } catch (error) {
-      console.log(`Something went wrong: ${error}`);
-    }
-  };
-
+    const newData = await postComicData(newComic)
+    setComicData([...comicData, newData])
+  }
+  
   const clearInputs = () => {
     setTitle("");
     setYear("");
@@ -138,7 +119,7 @@ const Form = ({ setComicData, comicData }) => {
         <button
           onClick={(event) => {
             event.preventDefault();
-            postComicData();
+            postNewComic();
             clearInputs();
           }}
         >
