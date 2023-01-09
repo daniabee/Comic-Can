@@ -1,5 +1,6 @@
 describe('Comic Can Home Page', () => {
   beforeEach(() => {
+    cy.intercept('GET', 'https://comic-can.herokuapp.com/api/v1/comicData', {fixture: 'getComicData'})
     cy.visit('http://localhost:3000/')
   })
   it('should have banner image', () => {
