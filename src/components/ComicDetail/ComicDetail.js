@@ -1,19 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 import "./ComicDetail.css";
 import EditForm from "../EditForm/EditForm";
 import verifiedImage from "../assets/verified.png";
 import PropTypes from "prop-types";
+import { getComicData } from "../../apiCalls";
 
-const ComicDetail = ({ findCards, setComicData, comicData }) => {
+
+const ComicDetail = ({comicData, setComicData}) => {
+  const [comicCard, setComicCard] = useState([])
   const { id } = useParams();
-  const card = findCards(id);
 
+  useEffect(() => {
+    const getOneComicData = async() => {
+      const data = await getComicData(`https://comic-can.herokuapp.com/api/v1/comicData/${id}`)
+      setComicCard(data[0])
+    }
+   getOneComicData()
+  }, [])
   const [showModal, setShowModal] = useState(false);
 
   const checkVerification = () => {
-    if (card.verified.toLowerCase() === "true") {
+    if (comicCard.verified === "true" || comicCard.verified === "TRUE") {
       return (
         <img
           src={verifiedImage}
@@ -23,6 +32,7 @@ const ComicDetail = ({ findCards, setComicData, comicData }) => {
       );
     }
   };
+
   return (
     <div className="comicDetails">
       <Link to="/comicCollection" className="back">
@@ -38,23 +48,24 @@ const ComicDetail = ({ findCards, setComicData, comicData }) => {
       </button>
       <div className="cardDetails">
         <img
-          src={card.image_path}
-          alt={`Cover of ${card.title}`}
+          src={comicCard.image_path}
+          alt={`Cover of ${comicCard.title}`}
           className="comicImage"
         />
         <div className="cardInfo">
           <div className="cardTitle">
             {checkVerification()}
-            <h2>{card.title} </h2>
+            <h2>{comicCard.title} </h2>
           </div>
-          <p>Year: {card.year}</p>
-          <p>Issue: {card.issue}</p>
-          <p>Grade: {card.grade}</p>
-          <p>Notes: {card.note}</p>
+          <p>Year: {comicCard.year}</p>
+          <p>Issue: {comicCard.issue}</p>
+          <p>Grade: {comicCard.grade}</p>
+          <p>Notes: {comicCard.note}</p>
         </div>
         <EditForm
+          setComicCard={setComicCard}
           show={showModal}
-          card={card}
+          comicCard={comicCard}
           setShowModal={setShowModal}
           setComicData={setComicData}
           comicData={comicData}
@@ -64,10 +75,10 @@ const ComicDetail = ({ findCards, setComicData, comicData }) => {
   );
 };
 
-ComicDetail.propTypes = {
-  findCards: PropTypes.func.isRequired,
+
+export default ComicDetail;
+
+ComicDetail.prototype = {
   setComicData: PropTypes.func.isRequired,
   comicData: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
-
-export default ComicDetail;

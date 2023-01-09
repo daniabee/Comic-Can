@@ -5,7 +5,7 @@ import PropTypes from "prop-types"
 
 const ComicCard = ({ card }) => {
   return (
-    <Link to={`/comicCollection/${card.id}`}>
+    <Link to={`/${card.id}`}>
       <div className="card-container">
         <img
           className="comic-image"
