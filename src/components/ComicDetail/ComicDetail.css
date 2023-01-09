@@ -9,7 +9,7 @@
   height: 80vh;
 }
 .comicImage {
-  width: 50vh;
+  width: 30vw;
   margin-left: 10vh;
   margin-right: 8vh;
   margin-top: 0vh;
@@ -20,7 +20,7 @@
 }
 .verifiedImage {
   height: 10vh;
-  width: 10vh;
+  width: 6vw;
 }
 h2 {
   font-size: 6vh;
