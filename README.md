@@ -21,12 +21,20 @@ The Comic-Can app helps comic collectors keep a digital log of their collections
 
 You can visit the deployed link: https://stretch-project-iota.vercel.app/
 
-OR
+OR use the app locally:
 
 - Clone down this repo.
+- cd into the project
 - run <code>npm install</code>
 - run <code>npm start</code>
 - application is now running on localhost:3000
+
+## Check Testing: 
+
+To see and run the cypress tests the team created, do all of the use the app locally instructions. Once the app is running locally:
+
+- run <code>npm run cypress</code>
+- follow the cypress instruction pop ups and open in your broswer!
 
 ## Technology used
 
