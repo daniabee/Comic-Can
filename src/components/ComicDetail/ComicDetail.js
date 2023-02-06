@@ -7,18 +7,19 @@ import verifiedImage from "../assets/verified.png";
 import PropTypes from "prop-types";
 import { getComicData } from "../../apiCalls";
 
-
-const ComicDetail = ({comicData, setComicData}) => {
-  const [comicCard, setComicCard] = useState([])
+const ComicDetail = ({ comicData, setComicData }) => {
+  const [comicCard, setComicCard] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
-    const getOneComicData = async() => {
-      const data = await getComicData(`https://comic-can.herokuapp.com/api/v1/comicData/${id}`)
-      setComicCard(data[0])
-    }
-   getOneComicData()
-  }, [])
+    const getOneComicData = async () => {
+      const data = await getComicData(
+        `https://comic-can.herokuapp.com/api/v1/comicData/${id}`
+      );
+      setComicCard(data[0]);
+    };
+    getOneComicData();
+  }, []);
   const [showModal, setShowModal] = useState(false);
 
   const checkVerification = () => {
@@ -54,13 +55,13 @@ const ComicDetail = ({comicData, setComicData}) => {
         />
         <div className="cardInfo">
           <div className="cardTitle">
-            {checkVerification()}
             <h2>{comicCard.title} </h2>
           </div>
           <p>Year: {comicCard.year}</p>
           <p>Issue: {comicCard.issue}</p>
           <p>Grade: {comicCard.grade}</p>
           <p>Notes: {comicCard.note}</p>
+          {checkVerification()}
         </div>
         <EditForm
           setComicCard={setComicCard}
@@ -74,7 +75,6 @@ const ComicDetail = ({comicData, setComicData}) => {
     </div>
   );
 };
-
 
 export default ComicDetail;
 

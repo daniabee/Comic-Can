@@ -1,11 +1,12 @@
 .comicCollection {
   height: 68vh;
   width: 99%;
-  padding: 10px;
+  margin-bottom: 1%;
 }
 
 a {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1%;
 }

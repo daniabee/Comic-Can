@@ -1,6 +1,7 @@
 .banner {
   width: 100vw;
-  height: 80vh;
-  object-fit: contain;
+  height: 81vh;
+  object-fit: cover;
   margin: 0;
+  object-position: 45%;
 }

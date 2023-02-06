@@ -6,15 +6,16 @@
 
 .comic-image {
   width: auto;
-  height: 70vh;
+  height: 60vh;
   opacity: 1;
   display: block;
-  transition: .5s ease;
+  transition: 0.5s ease;
   backface-visibility: hidden;
+  border: solid rgb(255, 77, 0) 5px;
 }
 
 .overlay {
-  transition: .5s ease;
+  transition: 0.5s ease;
   width: 100%;
   position: absolute;
   top: 50%;
@@ -22,15 +23,17 @@
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   text-align: center;
-  color: white;
-  font-size: 30px;
+  color: rgb(255, 255, 255);
+  font-size: 8vw;
+  font-weight: 900;
   z-index: -1;
+  background-color: rgb(0, 0, 0);
 }
 
 .comic-image:hover {
-  opacity: 0.2;
+  opacity: 0.1;
 }
 
-.comic-image:hover .overlay{
-  z-index: 1;
+.comic-image:hover .overlay {
+  z-index: 2;
 }

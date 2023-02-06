@@ -41,11 +41,11 @@
   font-family: "Bangers", cursive;
   margin: 1%;
   font-size: 3vw;
-  color: yellow;
+  color: rgb(255, 208, 0);
   text-decoration: none;
 }
 
 .homeButton:hover {
-  color: rgb(141, 88, 235);
+  color: rgb(255, 88, 59);
   cursor: pointer;
 }

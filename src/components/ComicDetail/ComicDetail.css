@@ -3,6 +3,8 @@
   color: aliceblue;
   display: flex;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.663);
+  padding: 1%;
 }
 .cardInfo {
   width: 80vh;
@@ -10,17 +12,20 @@
 }
 .comicImage {
   width: 30vw;
-  margin-left: 10vh;
-  margin-right: 8vh;
+  margin-left: 7vh;
+  margin-right: 6vh;
   margin-top: 0vh;
+  border: solid rgb(255, 210, 47) 5px;
 }
 .comicDetails {
   position: relative;
-
 }
 .verifiedImage {
-  height: 10vh;
-  width: 6vw;
+  justify-self: end;
+  height: 8vh;
+  width: auto;
+  position: absolute;
+  margin-bottom: 9%;
 }
 h2 {
   font-size: 6vh;
@@ -40,7 +45,7 @@ button {
   font-family: "Bangers", cursive;
   margin: 1%;
   font-size: 3vw;
-  color: yellow;
+  color: rgb(255, 210, 47);
   text-decoration: none;
 }
 .edit {
@@ -52,7 +57,7 @@ button {
 }
 button:hover,
 button:focus {
-  color: rgb(141, 88, 235);
+  color: rgb(255, 97, 35);
   text-decoration: none;
   cursor: pointer;
 }

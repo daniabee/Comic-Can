@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background: rgb(141, 88, 235);
+  background: rgb(14, 182, 182);
   height: 15vh;
   width: 100vw;
   margin: 0;
@@ -11,11 +11,12 @@
   font-family: "Bangers", cursive;
   position: relative;
   z-index: 1;
+  border: solid black 10px;
 }
 
 .my-collection-link,
 .add-comic-link {
-  color: yellow;
+  color: rgb(255, 246, 174);
   font-size: 4vw;
   text-shadow: -1px 1px 2px #000, 1px 1px 2px #000, 1px -1px 0 #000,
     -1px -1px 0 #000;
@@ -29,7 +30,7 @@
 }
 
 .add-comic-link:hover {
-  transform: scale(1.5) rotate(-25deg);
+  transform: scale(1.5) rotate(-10deg);
 }
 
 .my-collection,
