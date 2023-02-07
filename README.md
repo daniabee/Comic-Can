@@ -19,7 +19,7 @@ The Comic-Can app helps comic collectors keep a digital log of their collections
 
 ## Using the App:
 
-You can visit the deployed link: https://stretch-project-iota.vercel.app/
+You can visit the deployed link: https://comic-can.vercel.app/
 
 OR use the app locally:
 
