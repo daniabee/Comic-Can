@@ -6,7 +6,7 @@ import ComicCollection from "../ComicCollection/ComicCollection";
 import { Route, Routes } from "react-router";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import  { getComicData }  from "../../apiCalls";
+import { getComicData } from "../../apiCalls";
 import ComicDetail from "../ComicDetail/ComicDetail";
 
 function App() {
@@ -14,11 +14,13 @@ function App() {
   //const [error, setError] = useState("");
 
   useEffect(() => {
-   const getAllComicData = async() => {
-      const data = await getComicData("https://comic-can.herokuapp.com/api/v1/comicData")
-      setComicData(data)
-    }
-    getAllComicData()
+    const getAllComicData = async () => {
+      const data = await getComicData(
+        "https://comic-can.herokuapp.com/api/v1/comicData"
+      );
+      setComicData(data);
+    };
+    getAllComicData();
   }, []);
 
   return (
@@ -63,12 +65,10 @@ function App() {
         }
       />
       <Route
-        exact path="/:id"
+        exact
+        path="/:id"
         element={
-          <ComicDetail
-            setComicData={setComicData}
-            comicData={comicData}
-          />
+          <ComicDetail setComicData={setComicData} comicData={comicData} />
         }
       />
     </Routes>

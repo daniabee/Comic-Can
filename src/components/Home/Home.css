@@ -1,7 +1,19 @@
 .banner {
   width: 100vw;
   height: 81vh;
-  object-fit: cover;
   margin: 0;
-  object-position: 45%;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: bolder;
+  font-size: 13vw;
+  text-align: center;
+  color: rgb(255, 240, 180);
+  -webkit-text-stroke: black 3px;
 }
