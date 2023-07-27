@@ -15,7 +15,7 @@
   margin-left: 7vh;
   margin-right: 6vh;
   margin-top: 0vh;
-  border: solid rgb(255, 210, 47) 5px;
+  border: solid rgb(0, 0, 0) 5px;
 }
 .comicDetails {
   position: relative;
@@ -45,7 +45,9 @@ button {
   font-family: "Bangers", cursive;
   margin: 1%;
   font-size: 3vw;
-  color: rgb(255, 210, 47);
+  color: rgb(255, 246, 174);
+  text-shadow: -1px 1px 2px #000, 1px 1px 2px #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
   text-decoration: none;
 }
 .edit {
@@ -57,7 +59,10 @@ button {
 }
 button:hover,
 button:focus {
-  color: rgb(255, 97, 35);
+  color: rgb(255, 246, 174);
+  font-size: 4vw;
+  text-shadow: -1px 1px 2px #000, 1px 1px 2px #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
   text-decoration: none;
   cursor: pointer;
 }

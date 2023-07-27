@@ -12,8 +12,9 @@
   margin: 0;
   font-family: Georgia, "Times New Roman", Times, serif;
   font-weight: bolder;
-  font-size: 13vw;
+  font-size: 10vw;
   text-align: center;
-  color: rgb(255, 240, 180);
-  -webkit-text-stroke: black 3px;
+  color: rgb(255, 255, 255);
+  text-shadow: 0.5rem 0.5rem 0.2rem #000000;
+  -webkit-text-stroke: rgb(0, 0, 0) 3px;
 }
