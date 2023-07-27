@@ -1,4 +1,5 @@
-# Comic-Can 
+# [Comic-Can](https://comic-can.vercel.app/)
+<img width="1427" alt="ComicCan" src="https://user-images.githubusercontent.com/108088961/217361417-a7e16f59-2c3f-40e6-87d5-0bdc8516eaa4.png">
 
 ## Goal : 
 
@@ -13,13 +14,11 @@ The Comic-Can app helps comic collectors keep a digital log of their collections
 
 ## Planning & Wireframe:
 
-![image](https://user-images.githubusercontent.com/108088961/211428940-a75fb5a6-7f89-49d8-8a7e-cc61673531d7.png)
-
 ![Wireframe](https://user-images.githubusercontent.com/108088961/211430375-c46d95fc-508f-43cb-864c-b7577745053d.png)
 
 ## Using the App:
 
-You can visit the deployed link: https://stretch-project-iota.vercel.app/
+You can visit the deployed link: https://comic-can.vercel.app/
 
 OR use the app locally:
 
