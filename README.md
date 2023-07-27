@@ -1,6 +1,8 @@
 # [Comic-Can](https://comic-can.vercel.app/)
-<img width="1427" alt="ComicCan" src="https://user-images.githubusercontent.com/108088961/217361417-a7e16f59-2c3f-40e6-87d5-0bdc8516eaa4.png">
 
+<img width="1432" alt="Screenshot 2023-07-27 at 10 43 58 AM" src="https://github.com/daniabee/Comic-Can/assets/108088961/068255ec-3541-4763-b22d-2c987378ba54">
+<img width="1435" alt="Screenshot 2023-07-27 at 10 44 11 AM" src="https://github.com/daniabee/Comic-Can/assets/108088961/d987192d-e2fb-417c-b8b8-2a3810798394">
+<img width="1435" alt="Screenshot 2023-07-27 at 10 44 07 AM" src="https://github.com/daniabee/Comic-Can/assets/108088961/d3903aac-08e3-47ca-ade3-48a6cd3d764a">
 ## Goal : 
 
 The main goal of this project was to self-teach new technologies and utilize these new technologies in an application. The team decided to experiment with creating an API by building a server in Express, connecting it to a PostgreSQL database with Knex, and hosting it on a deployment service to be used in a front-end application. 
